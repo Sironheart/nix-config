@@ -1,0 +1,31 @@
+
+name: Raspberry Pi
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'systems/rpi-*/**.nix'
+  workflow_dispatch:
+
+jobs:
+  raspberryPi:
+    runs-on: ubuntu-latest
+    concurrency: raspberryPi
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: twingate/github-action@v1
+        with: 
+          service-key: ${{ secrets.TWINGATE_API_KEY }}
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Build config
+        run: |
+          nix develop -c colmena apply --on @raspi
