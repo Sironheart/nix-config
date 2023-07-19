@@ -6,13 +6,13 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    darwin-modules.url = "github:shyim/nix-darwin-modules";
+    darwin-modules.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    darwin-modules.url = "github:shyim/nix-darwin-modules";
-    darwin-modules.inputs.nixpkgs.follows = "nixpkgs";
 
     nixd.url = "github:nix-community/nixd";
   };
@@ -20,6 +20,8 @@
   outputs = {
     nixpkgs,
     home-manager,
+    darwin,
+    darwin-modules,
     self,
     ...
   }:
@@ -33,6 +35,7 @@
     colmena = {
       meta = {
         nixpkgs = import nixpkgs { system = "aarch64-linux"; };
+        specialArgs = extraArgs;
       };
 
       "rpi-nix-01" = {
@@ -83,6 +86,23 @@
 
         imports = [
           ./systems/rpi-03
+        ];
+      };
+    };
+
+    darwinConfigurations = {
+      "macbook" = darwin.lib.darwinSystem {
+        specialArgs = extraArgs;
+        system = "aarch64-darwin";
+        modules = [
+            home-manager.darwinModules.default
+            darwin-modules.darwinModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = extraArgs;
+              home-manager.users.steffen = import ./home;
+            }
         ];
       };
     };
