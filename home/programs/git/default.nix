@@ -1,8 +1,7 @@
-{ 
-  config, 
-  pkgs, 
-  flake, 
-  ...
+{ config
+, pkgs
+, flake
+, ...
 }: {
   programs.lazygit.enable = true;
 
@@ -52,5 +51,5 @@
       "**/node_modules"
       "**/.gradle"
     ]
-  }
-}
+      }
+      }

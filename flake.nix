@@ -17,84 +17,85 @@
     nixd.url = "github:nix-community/nixd";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    darwin,
-    darwin-modules,
-    self,
-    ...
-  }:
-  let 
-    supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    extraArgs = {
-      flake = self; 
-    };
-  in {
-    colmena = {
-      meta = {
-        nixpkgs = import nixpkgs { system = "aarch64-linux"; };
-        specialArgs = extraArgs;
+  outputs =
+    { nixpkgs
+    , home-manager
+    , darwin
+    , darwin-modules
+    , self
+    , ...
+    }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      extraArgs = {
+        flake = self;
       };
-
-      "rpi-nix-01" = {
-        name,
-        nodes,
-        pkgs,
-        ...
-      }: {
-        deployment = {
-          tags = [ "raspi" ];
-          buildOnTarget = true;
-          targetHost = "192.168.1.3";
+    in
+    {
+      colmena = {
+        meta = {
+          nixpkgs = import nixpkgs { system = "aarch64-linux"; };
+          specialArgs = extraArgs;
         };
 
-        imports = [
-          ./systems/rpi-01
-        ];
+        "rpi-nix-01" =
+          { name
+          , nodes
+          , pkgs
+          , ...
+          }: {
+            deployment = {
+              tags = [ "raspi" ];
+              buildOnTarget = true;
+              targetHost = "192.168.1.3";
+            };
+
+            imports = [
+              ./systems/rpi-01
+            ];
+          };
+
+        "rpi-nix-02" =
+          { name
+          , nodes
+          , pkgs
+          , ...
+          }: {
+            deployment = {
+              tags = [ "raspi" ];
+              buildOnTarget = true;
+              targetHost = "192.168.1.4";
+            };
+
+            imports = [
+              ./systems/rpi-02
+            ];
+          };
+
+        "rpi-nix-03" =
+          { name
+          , nodes
+          , pkgs
+          , ...
+          }: {
+            deployment = {
+              tags = [ "raspi" ];
+              buildOnTarget = true;
+              targetHost = "192.168.1.5";
+            };
+
+            imports = [
+              ./systems/rpi-03
+            ];
+          };
       };
 
-      "rpi-nix-02" = {
-        name,
-        nodes,
-        pkgs,
-        ...
-      }: {
-        deployment = {
-          tags = [ "raspi" ];
-          buildOnTarget = true;
-          targetHost = "192.168.1.4";
-        };
-
-        imports = [
-          ./systems/rpi-02
-        ];
-      };
-
-      "rpi-nix-03" = {
-        name,
-        nodes,
-        pkgs,
-        ...
-      }: {
-        deployment = {
-          tags = [ "raspi" ];
-          buildOnTarget = true;
-          targetHost = "192.168.1.5";
-        };
-
-        imports = [
-          ./systems/rpi-03
-        ];
-      };
-    };
-
-    darwinConfigurations = {
-      "macbook" = darwin.lib.darwinSystem {
-        specialArgs = extraArgs;
-        system = "aarch64-darwin";
-        modules = [
+      darwinConfigurations = {
+        "macbook" = darwin.lib.darwinSystem {
+          specialArgs = extraArgs;
+          system = "aarch64-darwin";
+          modules = [
             home-manager.darwinModules.default
             darwin-modules.darwinModules.default
             {
@@ -103,11 +104,11 @@
               home-manager.extraSpecialArgs = extraArgs;
               home-manager.users.steffen = import ./home;
             }
-        ];
+          ];
+        };
       };
-    };
 
-    devShells = forAllSystems (
+      devShells = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
@@ -118,10 +119,10 @@
           };
         }
       );
-    
-    formatter = forAllSystems (
+
+      formatter = forAllSystems (
         system:
         nixpkgs.legacyPackages.${system}.nixpkgs-fmt
       );
-  };
+    };
 }

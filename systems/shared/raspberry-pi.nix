@@ -1,8 +1,7 @@
-{ 
-  config, 
-  pkgs, 
-  lib, 
-  ... 
+{ config
+, pkgs
+, lib
+, ...
 }: {
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
@@ -13,7 +12,7 @@
     };
   };
 
-   fileSystems = {
+  fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";

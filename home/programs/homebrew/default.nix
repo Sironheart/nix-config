@@ -1,7 +1,6 @@
-{ 
-  config, 
-  pkgs, 
-  ...
+{ config
+, pkgs
+, ...
 }: {
   homebrew = {
     enable = true;
@@ -28,7 +27,7 @@
       "warp"
       "yubico-yubikey-manager"
     ];
-    
+
     masApps = {
       Magnet = 441258766;
       "Remote Desk Control" = 1509037746;
