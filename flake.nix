@@ -102,7 +102,23 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.steffen = import ./home;
+              home-manager.users.steffen = import ./home/mac.nix;
+            }
+          ];
+        };
+      };
+
+      nixosConfigurations = {
+        "tower" = nixpkgs.lib.nixosSystem {
+          specialArgs = extraArgs;
+          modules = [
+            ./systems/tower
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = extraArgs;
+              home-manager.users.steffen = import ./systems/tower/home-manager.nix;
             }
           ];
         };

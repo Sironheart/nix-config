@@ -4,8 +4,7 @@
 , ...
 }: {
   imports = [
-    ./git
-    ./neovim
-    ./shell
+    ./default.nix
+    ./homebrew
   ];
 }
