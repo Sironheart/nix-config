@@ -14,15 +14,14 @@
     userName = "Steffen Beisenherz";
 
     extraConfig = {
-      # commit.gpgsign = true;
+#      commit.gpgsign = true;
       push.default = "current";
       fetch.prune = true;
       pull.rebase = true;
       rebase.autoStash = true;
       init.defaultBranch = "main";
-      # gpg.format = "ssh";
-      # tag.gpgsign = true;
-      http.postBuffer = 157286400;
+#      gpg.format = "ssh";
+#      tag.gpgsign = true;
     };
 
     ignores = [
@@ -52,4 +51,9 @@
       "**/.gradle"
     ];
   };
+
+  programs.ssh.extraConfig = ''
+  Host *
+    IdentityAgent ~/.1password/agent.sock
+  '';
 }

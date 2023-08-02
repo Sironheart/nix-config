@@ -3,11 +3,8 @@
 , ...
 }: {
   imports = [
-    ./desktop.nix
-    ./system.nix
-
-    ../shared/shell.nix
-    ../shared/all-systems.nix
+    ./all-systems.nix
+    ./shell.nix
   ];
 
   programs.fish.enable = true;

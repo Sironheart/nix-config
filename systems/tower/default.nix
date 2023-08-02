@@ -3,6 +3,7 @@
 , ...
 }: {
   imports = [
+    ../shared
     ./apps.nix
     ./desktop.nix
     ./hardware-configuration.nix
