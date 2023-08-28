@@ -96,6 +96,7 @@
           specialArgs = extraArgs;
           system = "aarch64-darwin";
           modules = [
+            ./systems/mac-private
             home-manager.darwinModules.default
             darwin-modules.darwinModules.default
             {
@@ -112,7 +113,7 @@
           specialArgs = extraArgs;
           system = "aarch64-darwin";
           modules = [
-            ./systems/mac
+            ./systems/mac-work
             home-manager.darwinModules.default
             darwin-modules.darwinModules.default
             {

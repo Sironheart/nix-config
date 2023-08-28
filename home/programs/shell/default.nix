@@ -11,17 +11,15 @@
       ll = "ls -lsah";
       lg = "lazygit";
       vi = "nvim";
+      vim = "nvim";
     };
     loginShellInit = ''
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
       export EDITOR=nvim
       set fish_greeting
 
-      ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
-      fish_add_path /run/current-system/sw/bin
-      ''}
-
       fish_add_path $HOME/.npm-packages/bin/
+      fish_add_path $HOME/.bin
     '';
     plugins = with pkgs.fishPlugins; [
       {
@@ -37,8 +35,31 @@
       battery = {
         disabled = true;
       };
+      cmd_duration = {
+        min_time = 0;
+        show_milliseconds = true;
+      };
       container = {
         disabled = true;
+      };
+      directory = {
+        truncation_length = 999;
+        truncate_to_repo = false;
+      };
+      hostname = {
+        ssh_only = false;
+      };
+      java = {
+        disabled = true;
+      };
+      line_break = {
+        disabled = true;
+      };
+      localip = {
+        disabled = false;
+      };
+      status = {
+        disabled = false;
       };
     };
   };

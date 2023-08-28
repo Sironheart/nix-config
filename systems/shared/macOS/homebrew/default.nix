@@ -5,6 +5,10 @@
 }: {
   homebrew = {
     enable = true;
+
+    global = {
+    };
+
     taps = [
       "homebrew/bundle"
       "homebrew/cask"

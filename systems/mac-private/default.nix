@@ -4,8 +4,8 @@
 , ...
 }: {
   imports = [
-    ./homebrew
-    ./mac-config.nix
+    ../shared/macOS/homebrew
+    ../shared/macOS/mac-config.nix
     ./users.nix
   ];
 
