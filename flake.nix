@@ -102,7 +102,24 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.steffen = import ./home/mac.nix;
+              home-manager.users.steffen = import ./home;
+            }
+          ];
+        };
+
+        # Work Macbook
+        "162534S0" = darwin.lib.darwinSystem {
+          specialArgs = extraArgs;
+          system = "aarch64-darwin";
+          modules = [
+            ./systems/mac
+            home-manager.darwinModules.default
+            darwin-modules.darwinModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = extraArgs;
+              home-manager.users.steffenbeisenherz = import ./home;
             }
           ];
         };

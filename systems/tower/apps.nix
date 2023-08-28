@@ -26,6 +26,6 @@
   # Enable the 1Passsword GUI with myself as an authorized user for polkit
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = ["steffen"];
+    polkitPolicyOwners = [ "steffen" ];
   };
 }

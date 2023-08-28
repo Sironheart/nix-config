@@ -33,10 +33,10 @@
   };
 
   fileSystems."/vault" = {
-      device = "82ac1a5e-121c-4256-a971-2f1ed93987d1";
-      fsType = "ext4";
-      options = [ "nofail" ];
-    };
+    device = "82ac1a5e-121c-4256-a971-2f1ed93987d1";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/19adc39f-b2c2-4a5c-a533-600a26c76cbf"; }];

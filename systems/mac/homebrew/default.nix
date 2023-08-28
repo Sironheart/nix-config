@@ -1,5 +1,6 @@
 { config
 , pkgs
+, nix-darwin
 , ...
 }: {
   homebrew = {
@@ -7,7 +8,6 @@
     taps = [
       "homebrew/bundle"
       "homebrew/cask"
-      "homebrew/cask-drivers"
       "homebrew/cask-fonts"
       "homebrew/core"
     ];
@@ -22,14 +22,15 @@
       "font-jetbrains-mono-nerd-font"
       "iterm2"
       "jetbrains-toolbox"
+      "orbstack"
+      "rocket"
       "spotify"
       "whatsapp"
-      "warp"
       "yubico-yubikey-manager"
     ];
 
     masApps = {
-      Magnet = 441258766;
+      "Magnet" = 441258766;
       "Remote Desk Control" = 1509037746;
       "The Unarchiver" = 425424353;
     };

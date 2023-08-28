@@ -1,8 +1,10 @@
 { config
+, flake
 , pkgs
 , ...
 }: {
   imports = [
+    ./homebrew
     ./mac-config.nix
     ./users.nix
   ];
@@ -22,7 +24,7 @@
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-    settings.trusted-users = [ "root" "steffen" ];
+    settings.trusted-users = [ "root" "steffen" "steffenbeisenherz" ];
   };
 
   programs.fish.enable = true;

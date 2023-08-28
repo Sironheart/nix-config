@@ -3,19 +3,28 @@
 , ...
 }: {
   home.packages = with pkgs; [
-    colima
+    aws-iam-authenticator
+    awscli2
+    gnupg
     htop
     jq
     k9s
-    k3sup
-    kotlin
+    kafkactl
     kubectl
     kubernetes-helm
+    kustomize
+    gnumake
+    mkcert
     nixpkgs-fmt
-    temurin-bin
+    nodejs
+    nodePackages.pnpm
+    pinentry_mac
+    ruby
     terraform
     wget
   ];
+
+  home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
 }
