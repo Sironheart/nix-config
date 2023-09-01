@@ -24,7 +24,7 @@
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-    settings.trusted-users = [ "root" "steffen" "steffenbeisenherz" ];
+    settings.trusted-users = [ "root" "steffenbeisenherz" ];
   };
 
   programs.fish.enable = true;

@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     aws-iam-authenticator
     awscli2
+    cocoapods
     gnupg
     htop
     jq

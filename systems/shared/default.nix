@@ -6,6 +6,4 @@
     ./all-systems.nix
     ./shell.nix
   ];
-
-  programs.fish.enable = true;
 }

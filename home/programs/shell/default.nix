@@ -18,7 +18,9 @@
       export EDITOR=nvim
       set fish_greeting
 
-      fish_add_path $HOME/.npm-packages/bin/
+      set -x LC_ALL de_DE.UTF-8
+
+      fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
       fish_add_path $HOME/.bin
     '';
     plugins = with pkgs.fishPlugins; [

@@ -8,7 +8,6 @@
   time.timeZone = "Europe/Berlin";
   system.defaults.finder.ShowPathbar = true;
   system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-  #  system.keyboard.enableKeyMapping = true;
 
   system.defaults.dock = {
     "mineffect" = "scale";
