@@ -142,18 +142,6 @@
         };
       };
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            buildInputs = with pkgs; [ colmena ];
-          };
-        }
-      );
-
       formatter = forAllSystems (
         system:
         nixpkgs.legacyPackages.${system}.nixpkgs-fmt

@@ -16,6 +16,7 @@
     kustomize
     gnumake
     mkcert
+    nixd
     nixpkgs-fmt
     nodejs
     nodePackages.pnpm
