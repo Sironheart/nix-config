@@ -15,6 +15,11 @@
     };
 
     nixd.url = "github:nix-community/nixd";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,6 +27,7 @@
     , home-manager
     , darwin
     , darwin-modules
+    , nixvim
     , self
     , ...
     }:
@@ -114,8 +120,9 @@
           system = "aarch64-darwin";
           modules = [
             ./systems/mac-work
-            home-manager.darwinModules.default
             darwin-modules.darwinModules.default
+#            nixvim.homeManagerModules.nixvim
+            home-manager.darwinModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

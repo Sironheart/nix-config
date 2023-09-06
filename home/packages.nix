@@ -26,7 +26,7 @@
     wget
   ];
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   programs.home-manager.enable = true;
 }
