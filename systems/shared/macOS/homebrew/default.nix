@@ -6,7 +6,11 @@
   homebrew = {
     enable = true;
 
-    global = {
+    global = { };
+
+    onActivation = {
+      cleanup = "uninstall";
+      autoUpdate = true;
     };
 
     taps = [
