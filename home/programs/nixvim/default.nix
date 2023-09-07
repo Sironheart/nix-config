@@ -3,6 +3,10 @@
 , ...
 }: {
   programs.nixvim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+
     options = {
       number = true;
       cursorline = true;

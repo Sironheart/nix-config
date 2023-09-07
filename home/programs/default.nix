@@ -5,8 +5,8 @@
 }: {
   imports = [
     ./git
-    ./neovim
-#    ./nixvim
+#    ./neovim
+    ./nixvim
     ./shell
   ];
 }

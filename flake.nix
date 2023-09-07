@@ -121,13 +121,16 @@
           modules = [
             ./systems/mac-work
             darwin-modules.darwinModules.default
-#            nixvim.homeManagerModules.nixvim
             home-manager.darwinModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.steffenbeisenherz = import ./home;
+#              home-manager.users.steffenbeisenherz = import ./home;
+              home-manager.users.steffenbeisenherz.imports = [
+                ./home
+                nixvim.homeManagerModules.nixvim
+              ];
             }
           ];
         };

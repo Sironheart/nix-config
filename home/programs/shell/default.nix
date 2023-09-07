@@ -10,8 +10,6 @@
       cat = "bat";
       ll = "ls -lsah";
       lg = "lazygit";
-      vi = "nvim";
-      vim = "nvim";
     };
     loginShellInit = ''
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
