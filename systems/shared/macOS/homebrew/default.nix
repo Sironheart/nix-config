@@ -31,6 +31,7 @@
       "iterm2"
       "jetbrains-toolbox"
       "orbstack"
+      "postman"
       "rocket"
       "spotify"
       "whatsapp"
