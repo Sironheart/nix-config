@@ -78,7 +78,7 @@
       kotlin.disabled = true;
       line_break.disabled = true;
       localip = {
-        ssh_only = false;
+        ssh_only = true;
         disabled = false;
       };
       lua.disabled = true;

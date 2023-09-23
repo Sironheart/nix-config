@@ -20,6 +20,10 @@
       "homebrew/core"
     ];
 
+    brews = [
+      "pinentry-mac"
+    ];
+
     casks = [
       "1password"
       "alfred"
