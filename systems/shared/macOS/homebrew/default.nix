@@ -2,7 +2,8 @@
 , pkgs
 , nix-darwin
 , ...
-}: {
+}:
+{
   homebrew = {
     enable = true;
 

@@ -2,10 +2,11 @@
 , pkgs
 , flake
 , ...
-}: {
+}:
+{
   imports = [
     ./git
-#    ./neovim
+    #    ./neovim
     ./nixvim
     ./shell
   ];

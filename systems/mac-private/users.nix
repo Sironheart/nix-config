@@ -3,7 +3,8 @@
 , config
 , environment
 , ...
-}: {
+}:
+{
   users.users = {
     steffen = {
       name = "steffen";

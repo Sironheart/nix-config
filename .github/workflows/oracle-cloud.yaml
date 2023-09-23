@@ -1,0 +1,31 @@
+
+name: Oracle CI
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'systems/oracle-cloud/**/*.nix'
+  workflow_dispatch:
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    concurrency: raspberryPi
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+        with:
+          diagnostic-endpoint: ""
+
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Build config
+        run: |
+          nix develop -c colmena apply --on @oracle

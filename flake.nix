@@ -45,12 +45,31 @@
           specialArgs = extraArgs;
         };
 
+        "oracle-cloud" =
+          { name
+          , nodes
+          , pkgs
+          , ...
+          }:
+          {
+            deployment = {
+              tags = [ "oracle" ];
+              buildOnTarget = true;
+              targetHost = "141.147.6.79";
+            };
+
+            imports = [
+              ./systems/oracle-cloud
+            ];
+          };
+
         "rpi-nix-01" =
           { name
           , nodes
           , pkgs
           , ...
-          }: {
+          }:
+          {
             deployment = {
               tags = [ "raspi" ];
               buildOnTarget = true;
@@ -67,7 +86,8 @@
           , nodes
           , pkgs
           , ...
-          }: {
+          }:
+          {
             deployment = {
               tags = [ "raspi" ];
               buildOnTarget = true;
@@ -84,7 +104,8 @@
           , nodes
           , pkgs
           , ...
-          }: {
+          }:
+          {
             deployment = {
               tags = [ "raspi" ];
               buildOnTarget = true;
@@ -126,7 +147,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = extraArgs;
-#              home-manager.users.steffenbeisenherz = import ./home;
+              #              home-manager.users.steffenbeisenherz = import ./home;
               home-manager.users.steffenbeisenherz.imports = [
                 ./home
                 nixvim.homeManagerModules.nixvim
@@ -155,6 +176,18 @@
       formatter = forAllSystems (
         system:
         nixpkgs.legacyPackages.${system}.nixpkgs-fmt
+      );
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [ colmena ];
+          };
+        }
       );
     };
 }

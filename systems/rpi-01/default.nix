@@ -2,7 +2,8 @@
 , pkgs
 , flake
 , ...
-}: {
+}:
+{
   imports = [
     ../shared/all-systems.nix
     ../shared/raspberry-pi.nix

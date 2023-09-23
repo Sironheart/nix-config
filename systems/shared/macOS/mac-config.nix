@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   documentation.enable = false;
   documentation.man.enable = false;
   security.pam.enableSudoTouchIdAuth = true;

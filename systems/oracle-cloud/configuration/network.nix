@@ -1,0 +1,5 @@
+{ ...
+}:
+{
+  networking.hostName = "oci-nixos";
+}

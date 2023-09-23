@@ -2,7 +2,8 @@
 , flake
 , pkgs
 , ...
-}: {
+}:
+{
   imports = [
     ../shared/macOS/homebrew
     ../shared/macOS/mac-config.nix
