@@ -19,9 +19,9 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /teamcity 744 docker docker"
-    "d /teamcity/data 744 docker docker"
-    "d /teamcity/logs 744 docker docker"
+    "d /teamcity 744 steffen root"
+    "d /teamcity/data 744 steffen root"
+    "d /teamcity/logs 744 steffen root"
   ];
 
   services.caddy = {

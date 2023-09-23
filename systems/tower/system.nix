@@ -66,7 +66,7 @@
     enableSSHSupport = true;
   };
 
-  # networking.firewall.enable = false;
+#  networking.firewall.enable = false;
 
   system.stateVersion = "23.11";
 }
