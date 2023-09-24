@@ -2,8 +2,6 @@
 , ...
 }:
 {
-#  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
-
   security.sudo.wheelNeedsPassword = false;
 
   users.defaultUserShell = pkgs.fish;
