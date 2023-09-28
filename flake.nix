@@ -119,22 +119,6 @@
       };
 
       darwinConfigurations = {
-        "macbook" = darwin.lib.darwinSystem {
-          specialArgs = extraArgs;
-          system = "aarch64-darwin";
-          modules = [
-            ./systems/mac-private
-            home-manager.darwinModules.default
-            darwin-modules.darwinModules.default
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.steffen = import ./home;
-            }
-          ];
-        };
-
         # Work Macbook
         "162534S0" = darwin.lib.darwinSystem {
           specialArgs = extraArgs;
@@ -147,7 +131,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = extraArgs;
-              #              home-manager.users.steffenbeisenherz = import ./home;
               home-manager.users.steffenbeisenherz.imports = [
                 ./home
                 nixvim.homeManagerModules.nixvim

@@ -118,8 +118,8 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
-          nil_ls.settings.formatting.command = [ "nixpkgs-fmt" ];
+#          nil_ls.enable = true;
+#          nil_ls.settings.formatting.command = [ "nixpkgs-fmt" ];
         };
       };
     };
