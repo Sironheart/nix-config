@@ -129,6 +129,8 @@
       repeat # Repeatable plugin actions
       easy-align # Align text around symbols
       direnv-vim # Direnv integration
+      nvim-completion-manager
+      nvim-cm-racer
     ];
 
     colorschemes.onedark.enable = true;

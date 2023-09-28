@@ -23,6 +23,7 @@
 
     brews = [
       "pinentry-mac"
+      "awscli"
     ];
 
     casks = [

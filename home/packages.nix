@@ -5,7 +5,7 @@
 {
   home.packages = with pkgs; [
     aws-iam-authenticator
-    awscli2
+    cargo
     cocoapods
     gnupg
     htop
@@ -23,6 +23,7 @@
     nodePackages.pnpm
     pinentry_mac
     ruby
+    rustc
     terraform
     wget
   ];
