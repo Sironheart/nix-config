@@ -15,6 +15,19 @@
       updatetime = 0;
     };
     plugins = {
+      indent-blankline = {
+        enable = true;
+      };
+
+      gitsigns = {
+        enable = true;
+        currentLineBlame = true;
+      };
+
+      telescope = {
+        enable = true;
+      };
+
       treesitter = {
         enable = true;
         folding = false;
@@ -100,10 +113,6 @@
         };
       };
 
-      indent-blankline = {
-        enable = true;
-      };
-
       nvim-tree = {
         enable = true;
 
@@ -118,14 +127,27 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
-          nil_ls.settings.formatting.command = [ "nixpkgs-fmt" ];
+          java-language-server = {
+            enable = true;
+          };
+          kotlin-language-server = {
+            enable = true;
+          };
+          nixd = {
+            enable = true;
+          };
+          rust-analyzer = {
+            enable = true;
+          };
+          terraformls = {
+            enable = true;
+          };
         };
       };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
-      sensible # Sensible defaults
+#      sensible # Sensible defaults
       repeat # Repeatable plugin actions
       easy-align # Align text around symbols
 #      direnv-vim # Direnv integration
