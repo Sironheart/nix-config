@@ -118,8 +118,8 @@
       lsp = {
         enable = true;
         servers = {
-#          nil_ls.enable = true;
-#          nil_ls.settings.formatting.command = [ "nixpkgs-fmt" ];
+          nil_ls.enable = true;
+          nil_ls.settings.formatting.command = [ "nixpkgs-fmt" ];
         };
       };
     };
@@ -128,9 +128,7 @@
       sensible # Sensible defaults
       repeat # Repeatable plugin actions
       easy-align # Align text around symbols
-      direnv-vim # Direnv integration
-      nvim-completion-manager
-      nvim-cm-racer
+#      direnv-vim # Direnv integration
     ];
 
     colorschemes.onedark.enable = true;
