@@ -23,6 +23,7 @@
   system.defaults.NSGlobalDomain = {
     "com.apple.swipescrolldirection" = false;
     "com.apple.keyboard.fnState" = true;
+    "KeyRepeat" = 2;
     "AppleEnableMouseSwipeNavigateWithScrolls" = false;
     "AppleEnableSwipeNavigateWithScrolls" = true;
     "NSAutomaticCapitalizationEnabled" = false;

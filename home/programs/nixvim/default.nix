@@ -1,8 +1,23 @@
-{ config
-, pkgs
+{ lib
 , ...
 }:
 {
+  imports = [
+    ./completion.nix
+    ./lsp.nix
+    ./plugins.nix
+  ];
+
+  lib.nixvim = {
+    # Helper function to create leader mappings under a prefix
+    mkLeaderMappings = prefix:
+      lib.mapAttrs' (key: action:
+        lib.nameValuePair "<Leader>${prefix}${key}" {
+          silent = true;
+          inherit action;
+        });
+  };
+
   programs.nixvim = {
     enable = true;
     viAlias = true;
@@ -13,145 +28,25 @@
       cursorline = true;
       title = true;
       updatetime = 0;
-    };
-    plugins = {
-      indent-blankline = {
-        enable = true;
-      };
-
-      gitsigns = {
-        enable = true;
-        currentLineBlame = true;
-      };
-
-      telescope = {
-        enable = true;
-      };
-
-      treesitter = {
-        enable = true;
-        folding = false;
-        indent = true;
-        nixvimInjections = true;
-        incrementalSelection.enable = true;
-      };
-
-      treesitter-context = {
-        enable = true;
-        maxLines = 2;
-        minWindowHeight = 100;
-      };
-
-      comment-nvim = {
-        enable = true;
-      };
-
-      which-key = {
-        enable = true;
-      };
-
-      nvim-autopairs = {
-        enable = true;
-        checkTs = true;
-        mapBs = true;
-        mapCW = true;
-      };
-
-      lualine = {
-        enable = true;
-        componentSeparators = {
-          left = "";
-          right = "";
-        };
-        sectionSeparators = {
-          left = "";
-          right = "";
-        };
-        iconsEnabled = false;
-
-        sections = {
-          # Only show the first char of the current mode
-          lualine_a = [
-            {
-              name = "mode";
-              extraConfig.fmt.__raw = "function(str) return str:sub(1,1) end";
-            }
-            "selectioncount"
-          ];
-          lualine_b = [ "branch" "diff" ];
-          lualine_c = [
-            {
-              name = "filename";
-              extraConfig.path = 1;
-            }
-          ];
-
-          lualine_x = [ "diagnostics" "filetype" ];
-          lualine_y = [ "progress" "searchcount" ];
-          lualine_z = [ "location" ];
-        };
-
-        tabline = {
-          lualine_a = [
-            {
-              name = "windows";
-              extraConfig.windows_color = {
-                active = "lualine_a_normal";
-                inactive = "lualine_b_inactive";
-              };
-            }
-          ];
-          lualine_z = [
-            {
-              name = "tabs";
-              extraConfig.tabs_color = {
-                active = "lualine_a_normal";
-                inactive = "lualine_b_inactive";
-              };
-            }
-          ];
-        };
-      };
-
-      nvim-tree = {
-        enable = true;
-
-        autoClose = true;
-        disableNetrw = true;
-      };
-
-      lspkind = {
-        enable = true;
-      };
-
-      lsp = {
-        enable = true;
-        servers = {
-          java-language-server = {
-            enable = true;
-          };
-          kotlin-language-server = {
-            enable = true;
-          };
-          nixd = {
-            enable = true;
-          };
-          rust-analyzer = {
-            enable = true;
-          };
-          terraformls = {
-            enable = true;
-          };
-        };
-      };
+      inccommand = "nosplit";
+      smartcase = true;
+      undofile = true;
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
-#      sensible # Sensible defaults
-      repeat # Repeatable plugin actions
-      easy-align # Align text around symbols
-#      direnv-vim # Direnv integration
-    ];
+    # <Tab> through completions
+    maps.insert."<Tab>" = {
+      expr = true;
+      action = ''pumvisible() ? "\<C-n>" : "\<Tab>"'';
+    };
+    maps.insert."<S-Tab>" = {
+      expr = true;
+      action = ''pumvisible() ? "\<C-p>" : "\<S-Tab>"'';
+    };
+
+    # Mappings to work with the OS clipboard
+    maps.normalVisualOp."gy" = "\"+y";
+    maps.normalVisualOp."gp" = "\"+p";
+    maps.normalVisualOp."gP" = "\"+P";
 
     colorschemes.onedark.enable = true;
   };
