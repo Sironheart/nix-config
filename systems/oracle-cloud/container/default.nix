@@ -2,7 +2,6 @@
 }:
 {
   imports = [
-    ./teamcity-agent
-    ./teamcity-server
+#    ./teamcity-server
   ];
 }
