@@ -20,6 +20,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =
@@ -28,6 +30,7 @@
     , darwin
     , darwin-modules
     , nixvim
+    , sops-nix
     , self
     , ...
     }:
@@ -49,6 +52,7 @@
           { name
           , nodes
           , pkgs
+          , sops-nix
           , ...
           }:
           {
@@ -59,6 +63,7 @@
             };
 
             imports = [
+              sops-nix.nixosModules.sops
               ./systems/oracle-cloud
             ];
           };
