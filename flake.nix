@@ -52,7 +52,6 @@
           { name
           , nodes
           , pkgs
-#          , sops-nix
           , ...
           }:
           {
