@@ -4,7 +4,6 @@
   imports = [
     ./caddy
     ./docker
-    ./postgres
     ./outline
     ./minio
   ];
