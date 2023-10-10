@@ -13,6 +13,11 @@
       encode gzip
       reverse_proxy http://127.0.0.1:9001
     '';
+
+    virtualHosts."storage-api.beisenherz.dev".extraConfig = ''
+      encode gzip
+      reverse_proxy http://127.0.0.1:9000
+    '';
   };
 
   sops.secrets.minio_user = {};

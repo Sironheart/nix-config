@@ -11,7 +11,7 @@
     enableUpdateCheck = true;
 
     storage = {
-      uploadBucketUrl = "http://127.0.0.1:9000";
+      uploadBucketUrl = "https://storage-api.beisenherz.dev";
       uploadBucketName = "outline-storage";
       secretKeyFile = config.sops.secrets.outline_s3_secret_key.path;
       accessKey = "h9tNvrxMxKVmIRq5haze";
