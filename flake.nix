@@ -9,6 +9,9 @@
     darwin-modules.url = "github:shyim/nix-darwin-modules";
     darwin-modules.inputs.nixpkgs.follows = "nixpkgs";
 
+    devenv.url = "github:cachix/devenv/main";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +30,7 @@
   outputs =
     { nixpkgs
     , home-manager
+    , devenv
     , darwin
     , darwin-modules
     , nixvim

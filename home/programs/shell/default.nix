@@ -17,6 +17,8 @@
       export EDITOR=nvim
       set fish_greeting
 
+      direnv hook fish | source
+
       set -x LC_ALL de_DE.UTF-8
 
       npm set prefix ~/.npm

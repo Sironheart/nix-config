@@ -5,8 +5,7 @@
 }:
 {
   imports = [
-    ../shared/macOS/homebrew
-    ../shared/macOS/mac-config.nix
+    ../shared/macOS
     ./users.nix
   ];
 
@@ -14,7 +13,6 @@
   services.nix-daemon.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes auto-allocate-uids repl-flake
       auto-allocate-uids = true
