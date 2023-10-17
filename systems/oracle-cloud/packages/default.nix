@@ -1,4 +1,5 @@
-{ ...
+{ pkgs
+, ...
 }:
 {
   imports = [
@@ -9,4 +10,8 @@
   ];
 
   services.openssh.enable = true;
+
+  environment.systemPackages = [
+    pkgs.rclone
+  ];
 }

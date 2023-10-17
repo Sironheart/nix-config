@@ -31,9 +31,4 @@
       MINIO_ROOT_PASSWORD = "${config.sops.placeholder.minio_password}";
     '';
   };
-
-#  environment.variables = {
-#    MINIO_ROOT_USER = "${config.sops.secrets."minio/MINIO_ROOT_USER".content}";
-#    MINIO_ROOT_PASSWORD = "${config.sops.secrets."minio/MINIO_ROOT_USER".content}";
-#  };
 }

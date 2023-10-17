@@ -103,6 +103,7 @@
       sensible # Sensible defaults
       repeat # Repeatable plugin actions
       easy-align # Align text around symbols
+      vim-be-good
     ];
   };
 }

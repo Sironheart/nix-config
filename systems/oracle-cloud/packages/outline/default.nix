@@ -1,6 +1,10 @@
 { config
 , ...
 }: {
+  imports = [
+    ./backup.nix
+  ];
+
   services.outline = {
     enable = true;
     publicUrl = "https://notes.beisenherz.dev";
