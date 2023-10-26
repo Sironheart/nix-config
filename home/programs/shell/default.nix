@@ -24,6 +24,7 @@
 
       npm set prefix ~/.npm
       fish_add_path --prepend $HOME/.npm/bin
+      fish_add_path --prepend /opt/homebrew/bin
       fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
       fish_add_path $HOME/.bin
     '';
