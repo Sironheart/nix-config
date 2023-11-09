@@ -6,7 +6,7 @@
 {
   imports = [
     ./git
-    ./nixvim
+    ./nvim
     ./shell
   ];
 }

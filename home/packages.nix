@@ -24,6 +24,7 @@
     nodejs
     nodePackages.pnpm
     pinentry_mac
+    ripgrep
     ruby
     rustup
     terraform
