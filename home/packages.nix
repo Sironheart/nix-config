@@ -8,7 +8,9 @@
     aws-iam-authenticator
     cachix
     cocoapods
+    fd
     flake.inputs.devenv.packages.${system}.devenv
+    fluxcd
     gnupg
     htop
     jq
