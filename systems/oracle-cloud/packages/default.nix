@@ -5,8 +5,9 @@
   imports = [
     ./caddy
     ./docker
-    ./outline
     ./minio
+    ./outline
+    ./postgres
   ];
 
   services.openssh.enable = true;

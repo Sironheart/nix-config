@@ -70,60 +70,6 @@
               ./systems/oracle-cloud
             ];
           };
-
-        "rpi-nix-01" =
-          { name
-          , nodes
-          , pkgs
-          , ...
-          }:
-          {
-            deployment = {
-              tags = [ "raspi" ];
-              buildOnTarget = true;
-              targetHost = "192.168.1.3";
-            };
-
-            imports = [
-              ./systems/rpi-01
-            ];
-          };
-
-        "rpi-nix-02" =
-          { name
-          , nodes
-          , pkgs
-          , ...
-          }:
-          {
-            deployment = {
-              tags = [ "raspi" ];
-              buildOnTarget = true;
-              targetHost = "192.168.1.4";
-            };
-
-            imports = [
-              ./systems/rpi-02
-            ];
-          };
-
-        "rpi-nix-03" =
-          { name
-          , nodes
-          , pkgs
-          , ...
-          }:
-          {
-            deployment = {
-              tags = [ "raspi" ];
-              buildOnTarget = true;
-              targetHost = "192.168.1.5";
-            };
-
-            imports = [
-              ./systems/rpi-03
-            ];
-          };
       };
 
       darwinConfigurations = {
