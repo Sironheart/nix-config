@@ -44,7 +44,6 @@
       "postman"
       "rocket"
       "spotify"
-      "whatsapp"
       "yubico-yubikey-manager"
     ];
 
@@ -52,6 +51,7 @@
       "Magnet" = 441258766;
       "Remote Desk Control" = 1509037746;
       "The Unarchiver" = 425424353;
+      "Whatsapp" = 310633997;
     };
   };
 }
