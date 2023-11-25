@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'systems/oracle-cloud/**/*.nix'
+      - 'flake.lock'
   workflow_dispatch:
 
 jobs:
