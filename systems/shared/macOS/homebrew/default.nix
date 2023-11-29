@@ -32,7 +32,6 @@
       "alfred"
       "brave-browser"
       "discord"
-      "elgato-stream-deck"
       "eqmac"
       "firefox"
       "focusrite-control"
