@@ -11,7 +11,9 @@
     fd
     flake.inputs.devenv.packages.${system}.devenv
     fluxcd
+    gnumake
     gnupg
+    go
     htop
     jq
     k9s
@@ -19,7 +21,6 @@
     kubectl
     kubernetes-helm
     kustomize
-    gnumake
     mkcert
     nixd
     nixpkgs-fmt
@@ -28,7 +29,6 @@
     pinentry_mac
     ripgrep
     ruby
-    rustup
     terraform
     wget
   ];
