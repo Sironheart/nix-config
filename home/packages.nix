@@ -13,7 +13,6 @@
     fluxcd
     gnumake
     gnupg
-    go
     htop
     jq
     k9s
@@ -29,6 +28,7 @@
     pinentry_mac
     ripgrep
     ruby
+    rustup
     terraform
     wget
   ];
