@@ -15,7 +15,7 @@
     settings.trusted-users = [ "root" "steffen" ];
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";

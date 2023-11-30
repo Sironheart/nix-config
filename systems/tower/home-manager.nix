@@ -11,6 +11,6 @@
     username = "steffen";
     homeDirectory = "/home/steffen";
 
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 }

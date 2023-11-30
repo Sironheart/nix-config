@@ -42,6 +42,7 @@
       "orbstack"
       "postman"
       "rocket"
+      "slack"
       "spotify"
       "yubico-yubikey-manager"
     ];
