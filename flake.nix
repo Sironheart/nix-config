@@ -19,11 +19,6 @@
 
     nixd.url = "github:nix-community/nixd";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
@@ -33,7 +28,6 @@
     , devenv
     , darwin
     , darwin-modules
-    , nixvim
     , sops-nix
     , self
     , ...
@@ -87,7 +81,6 @@
               home-manager.extraSpecialArgs = extraArgs;
               home-manager.users.steffenbeisenherz.imports = [
                 ./home
-                nixvim.homeManagerModules.nixvim
               ];
             }
           ];

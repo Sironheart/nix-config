@@ -20,8 +20,8 @@
     '';
   };
 
-  sops.secrets.minio_user = {};
-  sops.secrets.minio_password = {};
+  sops.secrets.minio_user = { };
+  sops.secrets.minio_password = { };
 
   sops.templates.minio_secret = {
     mode = "0440";

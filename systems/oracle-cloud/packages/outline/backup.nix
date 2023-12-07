@@ -22,8 +22,8 @@
   };
 
   systemd.services."restic-backups-postgresql" = {
-    requires = ["postgresqlBackup.service"];
-    after = ["postgresqlBackup.service"];
+    requires = [ "postgresqlBackup.service" ];
+    after = [ "postgresqlBackup.service" ];
   };
 
   sops.secrets.restic_password = {

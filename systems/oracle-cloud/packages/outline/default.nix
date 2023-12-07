@@ -37,8 +37,8 @@
   };
 
   sops.secrets.outline_auth0_secret_id = {
-      owner = "outline";
-    };
+    owner = "outline";
+  };
 
   services.caddy = {
     virtualHosts."notes.beisenherz.dev".extraConfig = ''
