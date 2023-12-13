@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'systems/oracle-cloud/**/*.nix'
+      - 'lib/oracle-cloud/**/*.nix'
       - 'flake.lock'
   workflow_dispatch:
 
@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: raspberryPi
     steps:
-      - uses: actions/checkout@v3
-
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
@@ -26,6 +24,8 @@ jobs:
       - uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - uses: actions/checkout@v3
 
       - name: Build config
         run: |

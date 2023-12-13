@@ -5,7 +5,6 @@
 }:
 {
   home.packages = with pkgs; [
-    aws-iam-authenticator
     cachix
     cocoapods
     fd

@@ -23,8 +23,9 @@
     ];
 
     brews = [
-      "pinentry-mac"
       "awscli"
+      "aws-iam-authenticator"
+      "pinentry-mac"
     ];
 
     casks = [

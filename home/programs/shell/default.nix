@@ -5,8 +5,15 @@
 }:
 {
   imports = [
-    ../../../systems/shared/macOS/shell/starship.nix
+    ../../../lib/shared/macOS/shell
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    LANG = "de_DE.UTF-8";
+    LC_ALL = "de_DE.UTF-8";
+    LC_CTYPE = "de_DE.UTF-8";
+  };
 
   programs.fish = {
     enable = true;
@@ -18,9 +25,6 @@
     };
     loginShellInit = ''
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-      export EDITOR=nvim
-
-      set -x LC_ALL de_DE.UTF-8
 
       npm set prefix ~/.npm
       fish_add_path --prepend $HOME/.npm/bin
@@ -35,6 +39,4 @@
       }
     ];
   };
-
-  programs.bat.enable = true;
 }
