@@ -23,6 +23,10 @@
 
       #extras
       vimPlugins.nvim-treesitter-context
+      vimPlugins.lualine-nvim
+      vimPlugins.nvim-notify
+      vimPlugins.nvim-colorizer-lua
+      vimPlugins.which-key-nvim
 
       # configuration
       inputs.self.packages.${pkgs.system}.sironheart-nvim
