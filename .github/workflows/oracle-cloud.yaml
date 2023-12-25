@@ -21,6 +21,8 @@ jobs:
         with:
           diagnostic-endpoint: ""
 
+      - uses: extractions/setup-just@v1
+
       - uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
@@ -29,4 +31,4 @@ jobs:
 
       - name: Build config
         run: |
-          nix develop -c colmena apply --on @oracle
+          just build-linux @oracle

@@ -15,6 +15,7 @@
     gnupg
     htop
     jq
+    just
     kafkactl
     mkcert
     pinentry_mac

@@ -17,16 +17,16 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{
-    darwin
-  , devenv
-  , flake-parts
-  , home-manager
-  , nixpkgs
-  , self
-  , sops-nix
-  , ...
-  }:
+  outputs =
+    inputs@{ darwin
+    , devenv
+    , flake-parts
+    , home-manager
+    , nixpkgs
+    , self
+    , sops-nix
+    , ...
+    }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -34,7 +34,8 @@
         flake = self;
         inputs = inputs;
       };
-    in flake-parts.lib.mkFlake { inherit inputs; } {
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
 
       systems = supportedSystems;
 
@@ -104,10 +105,7 @@
       };
 
       perSystem = { pkgs, ... }: {
-        formatter = forAllSystems (
-          system:
-          nixpkgs.legacyPackages.${system}.nixpkgs-fmt
-        );
+        formatter = pkgs.nixpkgs-fmt;
 
         devShells = {
           default = pkgs.mkShell {

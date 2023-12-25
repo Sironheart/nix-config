@@ -2,6 +2,5 @@
 }:
 {
   imports = [
-#    ./teamcity-server
   ];
 }
