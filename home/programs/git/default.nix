@@ -8,7 +8,6 @@
 
   programs.git = {
     enable = true;
-
     delta.enable = true;
 
     userEmail = "git@beisenherz.dev";

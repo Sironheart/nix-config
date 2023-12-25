@@ -4,11 +4,11 @@ end
 
 local function set_vim_o()
     local settings = {
-        clipboard = 'unnamedplus',
+        clipboard = "unnamedplus",
         expandtab = true,
         scrolloff = 3,
         shiftwidth = 4,
-        shortmess = vim.o.shortmess .. 'c',
+        shortmess = vim.o.shortmess .. "c",
         splitright = true,
         tabstop = 4,
         termguicolors = true,
@@ -44,10 +44,10 @@ local function set_vim_keymaps()
     local map = vim.api.nvim_set_keymap
     local options = { noremap = false }
 
-    map('n', '<leader>h', '<CMD>wincmd h<CR>', options)
-    map('n', '<leader>j', '<CMD>wincmd j<CR>', options)
-    map('n', '<leader>k', '<CMD>wincmd k<CR>', options)
-    map('n', '<leader>l', '<CMD>wincmd l<CR>', options)
+    map("n", "<leader>h", "<CMD>wincmd h<CR>", options)
+    map("n", "<leader>j", "<CMD>wincmd j<CR>", options)
+    map("n", "<leader>k", "<CMD>wincmd k<CR>", options)
+    map("n", "<leader>l", "<CMD>wincmd l<CR>", options)
 end
 
 local function init()

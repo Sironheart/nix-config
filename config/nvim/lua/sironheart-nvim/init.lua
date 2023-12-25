@@ -1,9 +1,19 @@
 local function init()
-    require 'sironheart-nvim.vim'.init()
-    require 'sironheart-nvim.theme'.init()
-    require 'sironheart-nvim.languages'.init()
-    require 'sironheart-nvim.telescope'.init()
-    require 'sironheart-nvim.mappings'.init()
+    local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+    if not vim.loop.fs_stat(lazypath) then
+        vim.fn.system({
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "https://github.com/folke/lazy.nvim.git",
+            "--branch=stable", -- latest stable release
+            lazypath,
+        })
+    end
+    vim.opt.rtp:prepend(lazypath)
+
+    require "sironheart-nvim.vim".init()
+    require "lazy".setup "sironheart-nvim.plugins"
 end
 
 return {
