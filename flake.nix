@@ -12,8 +12,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixd.url = "github:nix-community/nixd";
-
     sops-nix.url = "github:Mic92/sops-nix";
   };
 

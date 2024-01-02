@@ -28,6 +28,7 @@
     kustomize
 
     # languages
+    go
     nodejs
     nodePackages.pnpm
     ruby
