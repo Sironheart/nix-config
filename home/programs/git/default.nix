@@ -44,6 +44,9 @@
       "Temporary Items"
       ".apdisk"
 
+      # Kotlin LSP sucks
+      "kls_database.db"
+
       ".idea"
       ".vscode"
       ".fleet"

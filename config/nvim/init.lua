@@ -1,1 +1,0 @@
-require 'sironheart-nvim'.init()

@@ -1,6 +1,4 @@
-{ config
-, pkgs
-, lib
+{ pkgs
 , ...
 }:
 {
@@ -32,10 +30,18 @@
       fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
       fish_add_path $HOME/.bin
     '';
-    plugins = with pkgs.fishPlugins; [
+    plugins = [
       {
         name = "sdkman-for-fish";
-        src = pkgs.fishPlugins.sdkman-for-fish.src;
+        inherit (pkgs.fishPlugins.sdkman-for-fish) src;
+      }
+      {
+        name = "z";
+        inherit (pkgs.fishPlugins.z) src;
+      }
+      {
+        name = "autopair";
+        inherit (pkgs.fishPlugins.autopair) src;
       }
     ];
   };

@@ -12,7 +12,7 @@ local function init()
     end
     vim.opt.rtp:prepend(lazypath)
 
-    require 'sironheart-nvim.kickstart'.init()
+    require 'sironheart-nvim.setup'.init()
 end
 
 return {
