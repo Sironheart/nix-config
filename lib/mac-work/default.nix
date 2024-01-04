@@ -11,7 +11,6 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nixpkgs.config.allowUnfree = true;
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes auto-allocate-uids repl-flake
