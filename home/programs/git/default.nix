@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, flake
-, ...
+{  ...
 }:
 {
   programs.lazygit.enable = true;

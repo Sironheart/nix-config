@@ -13,21 +13,25 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    sironheart-nvim.url = "github:Sironheart/nvim-config";
+    sironheart-nvim.flake = false;
   };
 
   outputs =
-    inputs@{ darwin
+    inputs@{
+      darwin
     , devenv
     , flake-parts
     , home-manager
     , nixpkgs
     , self
     , sops-nix
+    , sironheart-nvim
     , ...
     }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       extraArgs = {
         flake = self;
         inputs = inputs;
@@ -114,7 +118,7 @@
         packages = {
           sironheart-nvim = pkgs.vimUtils.buildVimPlugin {
             name = "sironheart-nvim";
-            src = ./config/nvim;
+            src = sironheart-nvim;
           };
         };
       };

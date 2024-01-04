@@ -8,14 +8,13 @@
     viAlias = true;
     vimAlias = true;
 
-    plugins = with pkgs; [
-      # configuration
+    plugins = [
       inputs.self.packages.${pkgs.system}.sironheart-nvim
     ];
 
     extraConfig = ''
       lua << EOF
-        require 'sironheart-nvim'.init()
+        require 'sironheart-nvim'
       EOF
     '';
   };
