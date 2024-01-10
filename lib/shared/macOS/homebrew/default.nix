@@ -7,12 +7,14 @@
   homebrew = {
     enable = true;
 
-    global = { };
+    global = {
+      autoUpdate = true;
+    };
 
     onActivation = {
       cleanup = "uninstall";
-      autoUpdate = true;
-      upgrade = true;
+      # autoUpdate = true;
+      # upgrade = true;
     };
 
     taps = [

@@ -9,7 +9,7 @@
     defaultEditor = true;
   };
 
-  programs.fish = {
+  programs.zsh = {
     enable = true;
 
     shellAliases = {
@@ -19,15 +19,12 @@
     loginShellInit = ''
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
       export EDITOR=nvim
-      set fish_greeting
-
-      set -x LC_ALL de_DE.UTF-8
-
-      fish_add_path --prepend $HOME/.npm/bin
-      fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
-      fish_add_path $HOME/.bin
+      export LC_ALL="de_DE.UTF-8"
+      export PATH="$PATH:$HOME/.npm/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin"
     '';
   };
+
+  environment.pathsToLink = [ "/share/zsh" ];
 
   programs.starship = {
     enable = true;

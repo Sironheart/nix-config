@@ -12,10 +12,8 @@
       inputs.self.packages.${pkgs.system}.sironheart-nvim
     ];
 
-    extraConfig = ''
-      lua << EOF
-        require 'sironheart-nvim'
-      EOF
+    extraLuaConfig = ''
+      require 'sironheart-nvim'
     '';
   };
 }

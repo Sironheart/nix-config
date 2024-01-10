@@ -13,22 +13,17 @@
     fd
     gnumake
     gnupg
-    htop
-    jq
     just
     kafkactl
     mkcert
     pinentry_mac
-    ripgrep
 
     # kubernetes
-    k9s
     kubectl
     kubernetes-helm
     kustomize
 
     # languages
-    go
     nodejs
     nodePackages.pnpm
     ruby

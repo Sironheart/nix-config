@@ -14,6 +14,6 @@
 
   services.openssh = {
     enable = true;
-    allowSFTP = false; 
+    allowSFTP = false;
   };
 }

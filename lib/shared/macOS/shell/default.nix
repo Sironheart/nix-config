@@ -2,7 +2,7 @@
 }: {
   imports = [
     ./bat.nix
-    ./direnv.nix
+    # ./direnv.nix
     ./starship.nix
   ];
 }

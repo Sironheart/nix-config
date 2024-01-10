@@ -19,7 +19,7 @@
     settings.trusted-users = [ "root" "steffen" ];
   };
 
-  programs.fish.enable = true;
+  programs.zsh.enable = true;
 
   users.users.steffen.isNormalUser = true;
 }

@@ -13,36 +13,44 @@
     LC_CTYPE = "de_DE.UTF-8";
   };
 
-  programs.fish = {
+
+  programs.zsh = {
     enable = true;
+
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    autocd = true;
 
     shellAliases = {
       cat = "bat";
-      ll = "ls -lsah";
+      ll = "exa -al";
       lg = "lazygit";
     };
-    loginShellInit = ''
+
+    initExtra = ''
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
       npm set prefix ~/.npm
-      fish_add_path --prepend $HOME/.npm/bin
-      fish_add_path --prepend /opt/homebrew/bin
-      fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
-      fish_add_path $HOME/.bin
+      export PATH=$PATH:$HOME/.npm/bin:/opt/homebrew/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin
     '';
-    plugins = [
-      {
-        name = "sdkman-for-fish";
-        inherit (pkgs.fishPlugins.sdkman-for-fish) src;
-      }
-      {
-        name = "z";
-        inherit (pkgs.fishPlugins.z) src;
-      }
-      {
-        name = "autopair";
-        inherit (pkgs.fishPlugins.autopair) src;
-      }
+
+    syntaxHighlighting.enable = true;
+  };
+
+  programs.z-lua = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "enhanced"
+      "once"
+      "fzf"
     ];
   };
+
+  programs.ripgrep.enable = true;
+  programs.k9s.enable = true;
+  programs.jq.enable = true;
+  programs.htop.enable = true;
+  programs.eza.enable = true;
+  programs.fzf.enable = true;
 }

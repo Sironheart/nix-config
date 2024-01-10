@@ -2,6 +2,8 @@
 }: {
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+
     settings = {
       aws.disabled = true;
       battery.disabled = true;
