@@ -19,8 +19,7 @@
   };
 
   outputs =
-    inputs@{
-      darwin
+    inputs@{ darwin
     , devenv
     , flake-parts
     , home-manager

@@ -33,6 +33,7 @@
     casks = [
       "1password"
       "alfred"
+      "arc"
       "brave-browser"
       "discord"
       "eqmac"
