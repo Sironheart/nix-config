@@ -32,6 +32,7 @@
     # language tooling
     cocoapods
     cargo
+    delve #Golang Debugging Tool
   ];
 
   home.stateVersion = "24.05";

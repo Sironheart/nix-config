@@ -37,7 +37,6 @@
       "brave-browser"
       "discord"
       "eqmac"
-      "firefox"
       "focusrite-control"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
@@ -48,7 +47,6 @@
       "rocket"
       "slack"
       "spotify"
-      "yubico-yubikey-manager"
     ];
 
     masApps = {
