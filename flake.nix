@@ -14,6 +14,8 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
+    mac-app-util.url = "github:hraban/mac-app-util";
+
     sironheart-nvim.url = "github:Sironheart/nvim-config";
     sironheart-nvim.flake = false;
   };
@@ -26,6 +28,7 @@
     , nixpkgs
     , self
     , sops-nix
+    , mac-app-util
     , sironheart-nvim
     , ...
     }:
@@ -82,6 +85,7 @@
                 home-manager.extraSpecialArgs = extraArgs;
                 home-manager.users.steffenbeisenherz.imports = [
                   ./home
+                  mac-app-util.homeManagerModules.default
                 ];
               }
             ];
