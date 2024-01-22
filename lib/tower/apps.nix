@@ -5,8 +5,6 @@
   environment.systemPackages = with pkgs; [
     brave
     discord
-    jetbrains-toolbox
-    kitty
     spotify
     vscode
 

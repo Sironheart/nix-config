@@ -3,7 +3,7 @@
 }:
 {
   imports = [
-    ../../../lib/shared/macOS/shell
+    ../../../lib/shared/starship.nix
   ];
 
   home.sessionVariables = {
@@ -17,24 +17,35 @@
   programs.zsh = {
     enable = true;
 
-    enableAutosuggestions = true;
-    enableCompletion = true;
     autocd = true;
+    syntaxHighlighting.enable = true;
+    enableAutosuggestions = true;
 
-    shellAliases = {
+    shellGlobalAliases = {
       cat = "bat";
       ll = "exa -al";
       lg = "lazygit";
     };
 
+    oh-my-zsh = {
+      enable = true;
+
+      plugins = [ "fzf" "gradle" "ripgrep" "sdk" "zsh-navigation-tools" ];
+    };
+
+    prezto.tmux = {
+      autoStartLocal = true;
+      autoStartRemote = true;
+      defaultSessionName = "default";
+      itermIntegration = true;
+    };
+
     initExtra = ''
-      export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+      source $HOME/.sdkman/bin/sdkman-init.sh
 
       npm set prefix ~/.npm
-      export PATH=$PATH:$HOME/.npm/bin:/opt/homebrew/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin
+      export PATH=$HOME/.npm/bin:/opt/homebrew/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin:$PATH
     '';
-
-    syntaxHighlighting.enable = true;
   };
 
   programs.z-lua = {
@@ -47,10 +58,14 @@
     ];
   };
 
+  programs.fzf = {
+    enable = true;
+    tmux.enableShellIntegration = true;
+  };
+  programs.bat.enable = true;
   programs.ripgrep.enable = true;
   programs.k9s.enable = true;
   programs.jq.enable = true;
   programs.htop.enable = true;
   programs.eza.enable = true;
-  programs.fzf.enable = true;
 }
