@@ -30,15 +30,14 @@
     oh-my-zsh = {
       enable = true;
 
-      plugins = [ "fzf" "gradle" "ripgrep" "sdk" "zsh-navigation-tools" ];
+      plugins = [ "fzf" "gradle" "ripgrep" "sdk" "zsh-navigation-tools" "tmux" ];
     };
 
-    prezto.tmux = {
-      autoStartLocal = true;
-      autoStartRemote = true;
-      defaultSessionName = "default";
-      itermIntegration = true;
-    };
+    initExtraFirst = ''
+      if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+        exec tmux
+      fi
+    '';
 
     initExtra = ''
       source $HOME/.sdkman/bin/sdkman-init.sh

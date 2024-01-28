@@ -2,7 +2,6 @@
 {
   programs.tmux = {
     enable = true;
-    # enableZshIntegration = true;
     baseIndex = 1;
     clock24 = true;
     disableConfirmationPrompt = true;

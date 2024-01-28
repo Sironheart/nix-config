@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    ../shared/starship.nix
+    # ../shared/starship.nix
   ];
 
   programs.neovim = {
