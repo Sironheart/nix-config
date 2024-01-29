@@ -17,7 +17,6 @@
     # mac-app-util.url = "github:hraban/mac-app-util";
 
     sironheart-nvim.url = "github:Sironheart/nvim-config";
-    sironheart-nvim.flake = false;
   };
 
   outputs =
@@ -115,13 +114,6 @@
         devShells = {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [ colmena just ];
-          };
-        };
-
-        packages = {
-          sironheart-nvim = pkgs.vimUtils.buildVimPlugin {
-            name = "sironheart-nvim";
-            src = sironheart-nvim;
           };
         };
       };

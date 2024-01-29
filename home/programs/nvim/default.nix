@@ -9,7 +9,7 @@
     vimAlias = true;
 
     plugins = [
-      inputs.self.packages.${pkgs.system}.sironheart-nvim
+      inputs.sironheart-nvim.packages.${pkgs.system}.default
     ];
 
     extraLuaConfig = ''
