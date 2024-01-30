@@ -9,6 +9,5 @@
     ./golang
     ./nvim
     ./shell
-    ./tmux
   ];
 }

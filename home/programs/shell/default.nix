@@ -24,23 +24,14 @@
     };
 
     loginShellInit = ''
-            if status is-interactive
-            and not set -q TMUX
-              if tmux has-session -t default
-      	        exec tmux attach-session -t default
-              else
-                tmux new-session -s default
-              end
-            end
+      npm set prefix ~/.npm
 
-            npm set prefix ~/.npm
-
-            fish_add_path --prepend $HOME/.npm/bin
-            fish_add_path --prepend /opt/homebrew/bin
-            fish_add_path --prepend $GOPATH
-            fish_add_path --prepend $GOBIN
-            fish_add_path --prepend $HOME/.bin
-            fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
+      fish_add_path --prepend $HOME/.npm/bin
+      fish_add_path --prepend /opt/homebrew/bin
+      fish_add_path --prepend $GOPATH
+      fish_add_path --prepend $GOBIN
+      fish_add_path --prepend $HOME/.bin
+      fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
     '';
 
     plugins = [
@@ -67,7 +58,6 @@
 
   programs.fzf = {
     enable = true;
-    tmux.enableShellIntegration = true;
   };
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
