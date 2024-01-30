@@ -4,7 +4,7 @@
 {
   security.sudo.wheelNeedsPassword = false;
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
 
   users.users = {
     root = {

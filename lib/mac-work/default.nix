@@ -23,5 +23,5 @@
     settings.trusted-users = [ "root" "steffenbeisenherz" ];
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 }

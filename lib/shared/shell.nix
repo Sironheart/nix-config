@@ -13,7 +13,7 @@
     defaultEditor = true;
   };
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
 
     shellAliases = {
@@ -24,9 +24,9 @@
       export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
       export EDITOR=nvim
       export LC_ALL="de_DE.UTF-8"
-      export PATH="$PATH:$HOME/.npm/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin"
+      export PATH="$PATH:$HOME/.npm/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$GOPATH:$GOBIN:$HOME/.bin"
     '';
   };
 
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = [ "${pkgs.fish}/bin/fish" ];
 }

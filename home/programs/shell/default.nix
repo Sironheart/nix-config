@@ -14,42 +14,50 @@
   };
 
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
 
-    autocd = true;
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-
-    shellGlobalAliases = {
+    shellAliases = {
       cat = "bat";
       ll = "exa -al";
       lg = "lazygit";
     };
 
-    oh-my-zsh = {
-      enable = true;
+    loginShellInit = ''
+            if status is-interactive
+            and not set -q TMUX
+              if tmux has-session -t default
+      	        exec tmux attach-session -t default
+              else
+                tmux new-session -s default
+              end
+            end
 
-      plugins = [ "fzf" "gradle" "ripgrep" "sdk" "zsh-navigation-tools" "tmux" ];
-    };
+            npm set prefix ~/.npm
 
-    initExtraFirst = ''
-      if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-        exec tmux
-      fi
+            fish_add_path --prepend $HOME/.npm/bin
+            fish_add_path --prepend /opt/homebrew/bin
+            fish_add_path --prepend $GOPATH
+            fish_add_path --prepend $GOBIN
+            fish_add_path --prepend $HOME/.bin
+            fish_add_path --prepend /etc/profiles/per-user/steffenbeisenherz/bin
     '';
 
-    initExtra = ''
-      source $HOME/.sdkman/bin/sdkman-init.sh
-
-      npm set prefix ~/.npm
-      export PATH=$HOME/.npm/bin:/opt/homebrew/bin:/etc/profiles/per-user/steffenbeisenherz/bin:$HOME/.bin:$PATH
-    '';
+    plugins = [
+      {
+        name = "sdkman-for-fish";
+        inherit (pkgs.fishPlugins.sdkman-for-fish) src;
+      }
+      {
+        name = "autopair";
+        inherit (pkgs.fishPlugins.autopair) src;
+      }
+    ];
   };
 
   programs.z-lua = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
     options = [
       "enhanced"
       "once"

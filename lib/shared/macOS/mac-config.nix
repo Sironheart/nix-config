@@ -4,8 +4,8 @@
   documentation.man.enable = false;
   security.pam.enableSudoTouchIdAuth = true;
 
-  environment.shells = [ pkgs.zsh ];
-  programs.zsh.enable = true;
+  environment.shells = [ pkgs.fish ];
+  programs.fish.enable = true;
 
   time.timeZone = "Europe/Berlin";
   system.defaults.finder.ShowPathbar = true;
