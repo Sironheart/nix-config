@@ -1,5 +1,4 @@
-{ config
-, flake
+{ inputs
 , pkgs
 , ...
 }:
@@ -7,7 +6,7 @@
   home.packages = with pkgs; [
     # devenv
     cachix
-    flake.inputs.devenv.packages.${system}.devenv
+    inputs.devenv.packages.${system}.devenv
 
     # general purpose
     fd
@@ -26,13 +25,12 @@
     # languages
     nodejs
     nodePackages.pnpm
-    ruby
     terraform
 
     # language tooling
-    cocoapods
     cargo
     delve #Golang Debugging Tool
+    nil
   ];
 
   home.stateVersion = "24.05";

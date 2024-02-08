@@ -17,6 +17,7 @@
     # mac-app-util.url = "github:hraban/mac-app-util";
 
     sironheart-nvim.url = "github:Sironheart/nvim-config";
+    sironheart-nvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

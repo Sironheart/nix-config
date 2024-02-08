@@ -11,6 +11,8 @@
     LANG = "de_DE.UTF-8";
     LC_ALL = "de_DE.UTF-8";
     LC_CTYPE = "de_DE.UTF-8";
+    AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
+    AZURE_DEFAULT_DURATION_HOURS = "12";
   };
 
 
