@@ -1,10 +1,6 @@
-{ config
-, pkgs
-, flake
-, ...
-}:
 {
   imports = [
+    ./alacritty
     ./git
     ./golang
     ./nvim
