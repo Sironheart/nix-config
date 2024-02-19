@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
@@ -21,10 +19,11 @@
         normal = {
           family = "JetbrainsMono Nerd Font";
         };
-        size = 14;
+        size = 13;
       };
       selection.save_to_clipboard = true;
 
+      # Flexoki colors
       colors = {
         # Default colors
         primary = {

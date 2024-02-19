@@ -1,12 +1,12 @@
-{ inputs
-, pkgs
-, ...
-}:
+{ inputs, pkgs, ... }:
+let
+  devenv = inputs.devenv.packages.${pkgs.system}.devenv;
+in
 {
   home.packages = with pkgs; [
     # devenv
     cachix
-    inputs.devenv.packages.${system}.devenv
+    devenv
 
     # general purpose
     fd

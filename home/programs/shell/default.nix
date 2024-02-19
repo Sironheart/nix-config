@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 {
   imports = [
     ../../../lib/shared/starship.nix
@@ -14,8 +12,6 @@
     AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
     AZURE_DEFAULT_DURATION_HOURS = "12";
   };
-
-
   programs.fish = {
     enable = true;
 
@@ -58,9 +54,7 @@
     ];
   };
 
-  programs.fzf = {
-    enable = true;
-  };
+  programs.fzf.enable = true;
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
   programs.k9s.enable = true;

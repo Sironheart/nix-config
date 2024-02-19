@@ -1,10 +1,8 @@
-{ pkgs
-, inputs
-, ...
-}:
+{ pkgs, inputs, ... }:
 let
   system = pkgs.system;
+  mkHomeManager = inputs.sironheart-nvim.lib.mkHomeManager;
 in
 {
-  programs.neovim = inputs.sironheart-nvim.lib.mkHomeManager { inherit system; };
+  programs.neovim = mkHomeManager { inherit system; };
 }

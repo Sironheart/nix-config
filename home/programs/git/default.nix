@@ -1,5 +1,3 @@
-{ ...
-}:
 {
   programs.lazygit.enable = true;
 
@@ -20,36 +18,6 @@
       gpg.format = "ssh";
       tag.gpgsign = true;
     };
-
-    ignores = [
-      ".DS_Store"
-      ".AppleDouble"
-      ".LSOverride"
-
-      "._*"
-
-      ".DocumentRevisions-V100"
-      ".fseventsd"
-      ".Spotlight-V100"
-      ".TemporaryItems"
-      ".Trashes"
-      ".VolumeIcon.icns"
-      ".com.apple.timemachine.donotpresent"
-      ".AppleDB"
-      ".AppleDesktop"
-      "Network Trash Folder"
-      "Temporary Items"
-      ".apdisk"
-
-      # Kotlin LSP sucks
-      "kls_database.db"
-
-      ".idea"
-      ".vscode"
-      ".fleet"
-      "**/node_modules"
-      "**/.gradle"
-    ];
   };
 
   programs.ssh.extraConfig = ''

@@ -1,9 +1,3 @@
-{ pkgs
-, lib
-, config
-, environment
-, ...
-}:
 {
   users.users = {
     steffenbeisenherz = {

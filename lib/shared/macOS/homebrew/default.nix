@@ -1,8 +1,3 @@
-{ config
-, pkgs
-, nix-darwin
-, ...
-}:
 {
   homebrew = {
     enable = true;
@@ -44,7 +39,6 @@
       "jetbrains-toolbox"
       "orbstack"
       "postman"
-      "rocket"
       "slack"
       "spotify"
     ];

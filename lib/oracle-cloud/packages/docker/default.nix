@@ -1,13 +1,8 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 {
   environment.systemPackages = [
     pkgs.docker-client
   ];
-  #  virtualisation.docker = {
-  #    enable = true;
-  #  };
 
   virtualisation.podman = {
     enable = true;

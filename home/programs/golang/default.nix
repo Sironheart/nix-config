@@ -1,5 +1,3 @@
-{ ...
-}:
 {
   programs.go = {
     enable = true;

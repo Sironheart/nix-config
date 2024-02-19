@@ -1,6 +1,5 @@
-{ config
-, ...
-}: {
+{ config, ... }:
+{
   services.minio = {
     enable = true;
     rootCredentialsFile = config.sops.templates.minio_secret.path;

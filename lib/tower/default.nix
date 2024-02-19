@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, ...
-}:
+{ pkgs }:
 {
   imports = [
     ../shared
@@ -18,8 +15,6 @@
 
     settings.trusted-users = [ "root" "steffen" ];
   };
-
-  programs.fish.enable = true;
 
   users.users.steffen.isNormalUser = true;
 }

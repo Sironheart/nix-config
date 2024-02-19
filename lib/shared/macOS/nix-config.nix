@@ -1,8 +1,23 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, flake, ... }:
+let
+  nixpkgs = flake.inputs.nixpkgs;
+in
+{
   nix = {
     package = pkgs.nixUnstable;
+
+    gc = {
+      automatic = true;
+      interval = { Weekday = 6; Hour = 3; Minute = 31; };
+      options = "--delete-older-than 7d";
+    };
+
+    # optimise =
+    #   {
+    #     automatic = true;
+    #     dates = [ "01:43" ];
+    #   };
+
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
@@ -17,8 +32,18 @@
       ];
       warn-dirty = false;
     };
+
+    # config.allowUnfree = true;
+
+    extraOptions = ''
+      experimental-features = nix-command flakes auto-allocate-uids repl-flake
+      auto-allocate-uids = true
+      log-lines = 100
+      nix-path = nixpkgs=${nixpkgs}
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
   };
 
+  services.nix-daemon.enable = true;
   nixpkgs.config.allowUnfree = true;
-
 }

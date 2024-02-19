@@ -1,10 +1,8 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 {
   security.sudo.wheelNeedsPassword = false;
 
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.bash;
 
   users.users = {
     root = {
