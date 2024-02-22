@@ -41,6 +41,7 @@
       "postman"
       "slack"
       "spotify"
+      "zed"
     ];
 
     masApps = {
