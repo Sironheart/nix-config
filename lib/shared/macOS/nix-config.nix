@@ -12,12 +12,6 @@ in
       options = "--delete-older-than 7d";
     };
 
-    # optimise =
-    #   {
-    #     automatic = true;
-    #     dates = [ "01:43" ];
-    #   };
-
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
@@ -32,8 +26,6 @@ in
       ];
       warn-dirty = false;
     };
-
-    # config.allowUnfree = true;
 
     extraOptions = ''
       experimental-features = nix-command flakes auto-allocate-uids repl-flake

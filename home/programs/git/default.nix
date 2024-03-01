@@ -3,7 +3,6 @@
 
   programs.git = {
     enable = true;
-    delta.enable = true;
 
     userEmail = "git@beisenherz.dev";
     userName = "Steffen Beisenherz";
@@ -16,6 +15,7 @@
       rebase.autoStash = true;
       init.defaultBranch = "main";
       gpg.format = "ssh";
+      push.autoSetupRemote = true;
       tag.gpgsign = true;
     };
   };

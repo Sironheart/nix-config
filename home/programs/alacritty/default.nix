@@ -23,56 +23,37 @@
       };
       selection.save_to_clipboard = true;
 
-      # Flexoki colors
+      # oxocarbon colors 
       colors = {
-        # Default colors
         primary = {
-
-          background = "0x282726";
-          foreground = "0xFFFCF0";
-
-          dim_foreground = "0xFFFCF0";
-          bright_foreground = "0xFFFCF0";
+          background = "#161616";
+          foreground = "#ffffff";
         };
-
-        # Cursor colors
-        cursor = {
-          text = "0xFFFCF0";
-          cursor = "0xFFFCF0";
+        search = {
+          matches = {
+            foreground = "CellBackground";
+            background = "#ee5396";
+          };
         };
-        # Normal colors
         normal = {
-          black = "0x100F0F";
-          red = "0xAF3029";
-          green = "0x66800B";
-          yellow = "0xAD8301";
-          blue = "0x205EA6";
-          magenta = "0xA02F6F";
-          cyan = "0x24837B";
-          white = "0xFFFCF0";
+          black = "#262626";
+          magenta = "#ff7eb6";
+          green = "#42be65";
+          yellow = "#ffe97b";
+          blue = "#33b1ff";
+          red = "#ee5396";
+          cyan = "#3ddbd9";
+          white = "#dde1e6";
         };
-
-        # Bright colors
         bright = {
-          black = "0x100F0F";
-          red = "0xD14D41";
-          green = "0x879A39";
-          yellow = "0xD0A215";
-          blue = "0x4385BE";
-          magenta = "0xCE5D97";
-          cyan = "0x3AA99F";
-          white = "0xFFFCF0";
-        };
-        # Dim colors
-        dim = {
-          black = "0x100F0F";
-          red = "0xAF3029";
-          green = "0x66800B";
-          yellow = "0xAD8301";
-          blue = "0x205EA6";
-          magenta = "0xA02F6F";
-          cyan = "0x24837B";
-          white = "0xFFFCF0";
+          black = "#393939";
+          magenta = "#ff7eb6";
+          green = "#42be65";
+          yellow = "#ffe97b";
+          blue = "#33b1ff";
+          red = "#ee5396";
+          cyan = "#3ddbd9";
+          white = "#ffffff";
         };
       };
     };

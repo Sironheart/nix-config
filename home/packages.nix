@@ -19,18 +19,12 @@ in
 
     # kubernetes
     kubectl
-    kubernetes-helm
-    kustomize
 
     # languages
     nodejs
     nodePackages.pnpm
-    terraform
 
-    # language tooling
-    cargo
-    delve #Golang Debugging Tool
-    nil
+    nixVersions.nix_2_20
   ];
 
   home.stateVersion = "24.05";

@@ -91,22 +91,6 @@
             ];
           };
         };
-
-        nixosConfigurations = {
-          "tower" = nixpkgs.lib.nixosSystem {
-            specialArgs = extraArgs;
-            modules = [
-              ./lib/tower
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = extraArgs;
-                home-manager.users.steffen = import ./lib/tower/home-manager.nix;
-              }
-            ];
-          };
-        };
       };
 
       perSystem = { pkgs, ... }: {

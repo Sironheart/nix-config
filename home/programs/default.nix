@@ -1,8 +1,8 @@
 {
   imports = [
     ./alacritty
+    ./direnv
     ./git
-    ./golang
     ./nvim
     ./shell
   ];
