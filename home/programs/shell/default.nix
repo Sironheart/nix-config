@@ -5,12 +5,12 @@
   ];
 
   home.sessionVariables = {
+    AZURE_DEFAULT_DURATION_HOURS = "12";
+    AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
     EDITOR = "nvim";
     LANG = "de_DE.UTF-8";
     LC_ALL = "de_DE.UTF-8";
     LC_CTYPE = "de_DE.UTF-8";
-    AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
-    AZURE_DEFAULT_DURATION_HOURS = "12";
   };
 
   programs.fish = {
@@ -38,27 +38,30 @@
     ];
   };
 
-  programs.z-lua = {
+  programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
-    options = [
-      "enhanced"
-      "once"
-      "fzf"
-    ];
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      dialect = "uk";
+      keymap_mode = "vim-insert";
+      show_preview = true;
+      update_check = false;
+    };
+  };
+
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+    git = true;
   };
 
   programs.bat.enable = true;
   programs.htop.enable = true;
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
-    git = true;
-  };
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
   programs.jq.enable = true;
   programs.k9s.enable = true;
   programs.ripgrep.enable = true;

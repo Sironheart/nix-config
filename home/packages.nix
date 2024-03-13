@@ -24,7 +24,7 @@ in
     nodejs
     nodePackages.pnpm
 
-    nixVersions.nix_2_20
+    nixVersions.nix_2_21
   ];
 
   home.stateVersion = "24.05";

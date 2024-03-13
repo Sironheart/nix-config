@@ -29,17 +29,15 @@
       "1password"
       "alfred"
       "arc"
-      "brave-browser"
       "discord"
       "eqmac"
       "focusrite-control"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
-      "iterm2"
       "jetbrains-toolbox"
+      "meld-studio"
       "orbstack"
       "postman"
-      "slack"
       "spotify"
       "zed"
     ];
@@ -47,7 +45,6 @@
     masApps = {
       "Magnet" = 441258766;
       "Remote Desk Control" = 1509037746;
-      "The Unarchiver" = 425424353;
       "Whatsapp" = 310633997;
     };
   };

@@ -5,15 +5,15 @@
 
     settings = {
       shell = {
-        program = "${pkgs.fish}/bin/fish";
         args = [ "-l" ];
+        program = "${pkgs.fish}/bin/fish";
       };
       window = {
-        decorations = "Buttonless";
-        opacity = 0.8;
         blur = true;
-        startup_mode = "SimpleFullscreen";
+        decorations = "Buttonless";
+        opacity = 0.6;
         option_as_alt = "Both";
+        startup_mode = "SimpleFullscreen";
       };
       font = {
         normal = {
