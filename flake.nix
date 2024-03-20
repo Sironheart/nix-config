@@ -94,7 +94,7 @@
       };
 
       perSystem = { pkgs, ... }: {
-        formatter = pkgs.nixpkgs-fmt;
+        formatter = pkgs.alejandra;
 
         devShells = {
           default = pkgs.mkShell {

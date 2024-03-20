@@ -3,9 +3,6 @@
   imports = [
     ./caddy
     ./docker
-    ./minio
-    ./outline
-    ./postgres
   ];
 
   services.openssh.enable = true;
