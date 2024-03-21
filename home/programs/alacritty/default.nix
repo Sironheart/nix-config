@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.alacritty = {
     enable = true;
 
     settings = {
       shell = {
-        args = [ "-l" ];
+        args = ["-l"];
         program = "${pkgs.fish}/bin/fish";
       };
       window = {
@@ -23,7 +22,7 @@
       };
       selection.save_to_clipboard = true;
 
-      # oxocarbon colors 
+      # oxocarbon colors
       colors = {
         primary = {
           background = "#161616";

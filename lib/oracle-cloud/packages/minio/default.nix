@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.minio = {
     enable = true;
     rootCredentialsFile = config.sops.templates.minio_secret.path;
@@ -19,8 +18,8 @@
     '';
   };
 
-  sops.secrets.minio_user = { };
-  sops.secrets.minio_password = { };
+  sops.secrets.minio_user = {};
+  sops.secrets.minio_password = {};
 
   sops.templates.minio_secret = {
     mode = "0440";

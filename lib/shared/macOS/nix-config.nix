@@ -1,14 +1,20 @@
-{ pkgs, flake, ... }:
-let
-  nixpkgs = flake.inputs.nixpkgs;
-in
 {
+  pkgs,
+  flake,
+  ...
+}: let
+  nixpkgs = flake.inputs.nixpkgs;
+in {
   nix = {
     package = pkgs.nixUnstable;
 
     gc = {
       automatic = true;
-      interval = { Weekday = 6; Hour = 3; Minute = 31; };
+      interval = {
+        Weekday = 6;
+        Hour = 3;
+        Minute = 31;
+      };
       options = "--delete-older-than 7d";
     };
 

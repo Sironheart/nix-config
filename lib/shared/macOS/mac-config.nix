@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   documentation.enable = false;
   documentation.man.enable = false;
   security.pam.enableSudoTouchIdAuth = true;
 
-  environment.shells = [ pkgs.fish ];
+  environment.shells = [pkgs.fish];
 
   time.timeZone = "Europe/Berlin";
   system.defaults.finder.ShowPathbar = true;

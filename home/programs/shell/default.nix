@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ../../../lib/shared/starship.nix
   ];
@@ -58,6 +57,30 @@
     enable = true;
     enableFishIntegration = true;
     git = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+
+    baseIndex = 1;
+    clock24 = true;
+    disableConfirmationPrompt = true;
+    keyMode = "vi";
+    mouse = false;
+    shortcut = "s";
+
+    shell = "${pkgs.fish}/bin/fish";
+
+    extraConfig = ''
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded!"
+
+      set-option -g status-position top
+
+      bind c new-window -c "#{pane_current_path}"
+      bind -N "Split the pane into two, left and right" v split-window -v -c "#{pane_current_path}"
+      bind -N "Split the pane into two, top and bottom" s split-window -h -c "#{pane_current_path}"
+    '';
   };
 
   programs.bat.enable = true;

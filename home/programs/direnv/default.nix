@@ -7,7 +7,7 @@
 
     config = {
       whitelist = {
-        prefix = [ "~/privat" "~/projects" ];
+        prefix = ["~/privat" "~/projects"];
       };
     };
   };

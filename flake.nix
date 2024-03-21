@@ -20,55 +20,51 @@
     sironheart-nvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs@{ darwin
-    , devenv
-    , flake-parts
-    , home-manager
-    , nixpkgs
-    , self
-    , sops-nix
-    , mac-app-util
-    , sironheart-nvim
-    , ...
-    }:
-    let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      extraArgs = {
-        flake = self;
-        inputs = inputs;
-      };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-
+  outputs = inputs @ {
+    darwin,
+    devenv,
+    flake-parts,
+    home-manager,
+    nixpkgs,
+    self,
+    sops-nix,
+    mac-app-util,
+    sironheart-nvim,
+    ...
+  }: let
+    supportedSystems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
+    extraArgs = {
+      flake = self;
+      inputs = inputs;
+    };
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = supportedSystems;
 
       flake = {
-
         colmena = {
           meta = {
-            nixpkgs = import nixpkgs { system = "aarch64-linux"; };
+            nixpkgs = import nixpkgs {system = "aarch64-linux";};
             specialArgs = extraArgs;
           };
 
-          "oracle-cloud" =
-            { name
-            , nodes
-            , pkgs
-            , ...
-            }:
-            {
-              deployment = {
-                tags = [ "oracle" ];
-                buildOnTarget = true;
-                targetHost = "141.147.6.79";
-              };
-
-              imports = [
-                sops-nix.nixosModules.sops
-                ./lib/oracle-cloud
-              ];
+          "oracle-cloud" = {
+            name,
+            nodes,
+            pkgs,
+            ...
+          }: {
+            deployment = {
+              tags = ["oracle"];
+              buildOnTarget = true;
+              targetHost = "141.147.6.79";
             };
+
+            imports = [
+              sops-nix.nixosModules.sops
+              ./lib/oracle-cloud
+            ];
+          };
         };
 
         darwinConfigurations = {
@@ -93,12 +89,12 @@
         };
       };
 
-      perSystem = { pkgs, ... }: {
+      perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
 
         devShells = {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [ colmena just ];
+            buildInputs = with pkgs; [colmena just];
           };
         };
       };

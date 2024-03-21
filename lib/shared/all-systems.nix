@@ -6,7 +6,7 @@
       experimental-features = nix-command flakes auto-allocate-uids repl-flake
     '';
 
-    settings.trusted-users = [ "root" "steffen" ];
+    settings.trusted-users = ["root" "steffen"];
   };
 
   system.stateVersion = "24.05";

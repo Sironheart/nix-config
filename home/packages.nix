@@ -1,8 +1,10 @@
-{ inputs, pkgs, ... }:
-let
-  devenv = inputs.devenv.packages.${pkgs.system}.devenv;
-in
 {
+  inputs,
+  pkgs,
+  ...
+}: let
+  devenv = inputs.devenv.packages.${pkgs.system}.devenv;
+in {
   home.packages = with pkgs; [
     # devenv
     cachix

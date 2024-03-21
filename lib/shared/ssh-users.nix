@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   security.sudo.wheelNeedsPassword = false;
 
   users.defaultUserShell = pkgs.bash;
