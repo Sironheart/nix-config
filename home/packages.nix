@@ -1,15 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  devenv = inputs.devenv.packages.${pkgs.system}.devenv;
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    # devenv
-    cachix
-    devenv
-
     # general purpose
     fd
     gnumake
