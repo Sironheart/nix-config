@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, lib, ... }:
+let
+  isDarwin = pkgs.system == "aarch64-darwin" || pkgs.system == "x86_64-darwin";
+in
+{
   home.packages = with pkgs; [
     # general purpose
     fd
@@ -7,7 +11,6 @@
     just
     kafkactl
     mkcert
-    pinentry_mac
 
     # kubernetes
     kubectl
@@ -17,7 +20,7 @@
     nodePackages.pnpm
 
     nixVersions.nix_2_21
-  ];
+  ] ++ lib.optionals isDarwin [ pinentry_mac ];
 
   home.stateVersion = "24.05";
 

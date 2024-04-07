@@ -7,6 +7,9 @@ build-linux tag:
 build-mac:
     nix flake update sironheart-nvim; darwin-rebuild switch --flake $(pwd)
 
+build-nixos:
+    nixos-rebuild switch --flake '.#desktop'
+
 format:
     nix fmt $(pwd)
 
