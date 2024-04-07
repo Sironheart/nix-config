@@ -31,6 +31,7 @@
       "arc"
       "discord"
       "eqmac"
+      "notion"
       "focusrite-control"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"

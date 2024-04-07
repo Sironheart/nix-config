@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  isDarwin = pkgs.system == "aarch64-darwin" || pkgs.system == "x86_64-darwin";
+in {
   imports = [
     ../../../lib/shared/starship.nix
   ];
@@ -10,6 +12,7 @@
     LANG = "de_DE.UTF-8";
     LC_ALL = "de_DE.UTF-8";
     LC_CTYPE = "de_DE.UTF-8";
+    SHELL = "${pkgs.fish}/bin/fish";
   };
 
   programs.fish = {
@@ -17,6 +20,7 @@
 
     shellAliases = {
       cat = "bat";
+      nb = "nix build --json --no-link --print-build-logs";
       lg = "lazygit";
     };
 
@@ -65,47 +69,78 @@
   programs.k9s.enable = true;
   programs.ripgrep.enable = true;
 
-  /*
   programs.tmux = {
-  enable = true;
+    enable = true;
 
-  baseIndex = 1;
-  clock24 = true;
-  disableConfirmationPrompt = true;
-  keyMode = "vi";
-  mouse = false;
-  shortcut = "s";
+    baseIndex = 1;
+    disableConfirmationPrompt = true;
+    keyMode = "vi";
+    customPaneNavigationAndResize = true;
+    reverseSplit = true;
+    mouse = false;
+    shortcut = "s";
 
-  shell = "${pkgs.fish}/bin/fish";
+    terminal =
+      if isDarwin
+      then "screen-256color"
+      else "xterm-256color";
 
-  plugins = with pkgs; [
-    tmuxPlugins.vim-tmux-navigator
-    {
-      plugin =
-        tmuxPlugins.mkTmuxPlugin
-        {
-          pluginName = "minimal-tmux-status";
-          version = "unstable-2024-04-02";
-          src = fetchFromGitHub {
-            owner = "niksingh710";
-            repo = "minimal-tmux-status";
-            rev = "6590ff430ec67c938a26618e011475fbd64e0cac";
-            hash = "sha256-8ox0AuE+r+yCZKcpZa0dSXCBtFUwQQhHlKxk7EohY+4=";
-          };
-        };
-    }
-  ];
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.vim-tmux-navigator;
+        extraConfig = ''
+          is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+              | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+          bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+          bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+          bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+          bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+          tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+          if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+              "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+          if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+              "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
 
-  extraConfig = ''
-  unbind r
-  bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded!"
+          bind-key -T copy-mode-vi 'C-h' select-pane -L
+          bind-key -T copy-mode-vi 'C-j' select-pane -D
+          bind-key -T copy-mode-vi 'C-k' select-pane -U
+          bind-key -T copy-mode-vi 'C-l' select-pane -R
+          bind-key -T copy-mode-vi 'C-\' select-pane -l
+        '';
+      }
+      {
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'frappe'
 
-  set-option -g status-position top
+          # config 2 on https://github.com/catppuccin/tmux
+          set -g @catppuccin_window_left_separator "█"
+          set -g @catppuccin_window_right_separator "█ "
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_window_middle_separator "  █"
 
-  bind c new-window -c "#{pane_current_path}"
-  bind -N "Split the pane into two, left and right" v split-window -v -c "#{pane_current_path}"
-  bind -N "Split the pane into two, top and bottom" s split-window -h -c "#{pane_current_path}"
-  '';
+          set -g @catppuccin_window_default_fill "number"
+
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#{b:pane_current_path}"
+
+          set -g @catppuccin_status_modules_left "application"
+          set -g @catppuccin_status_modules_right "session host"
+          set -g @catppuccin_status_left_separator  ""
+          set -g @catppuccin_status_right_separator " "
+          set -g @catppuccin_status_fill "all"
+          set -g @catppuccin_status_connect_separator "yes"
+        '';
+      }
+    ];
+
+    extraConfig = ''
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded!"
+
+      set-option -g status-position top
+
+      bind c new-window -c "#{pane_current_path}"
+    '';
   };
-  */
 }
