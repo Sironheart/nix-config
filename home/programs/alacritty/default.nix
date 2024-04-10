@@ -11,7 +11,7 @@
         window = {
           blur = true;
           decorations = "Buttonless";
-          opacity = 0.6;
+          opacity = 1.0;
           option_as_alt = "Both";
           startup_mode = "SimpleFullscreen";
         };

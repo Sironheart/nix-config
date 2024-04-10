@@ -13,6 +13,7 @@ in {
       ./git
       ./nvim
       ./shell
+      ./tmux
     ]
     /*
     ++ lib.optional isLinux [ ./hyprland ]
