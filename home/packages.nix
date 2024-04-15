@@ -24,6 +24,9 @@ in {
       nodePackages.pnpm
 
       nixVersions.nix_2_21
+
+      # random stuff
+      exercism
     ]
     ++ lib.optionals isDarwin [pinentry_mac];
 
