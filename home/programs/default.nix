@@ -1,36 +1,41 @@
 {
-  lib,
-  pkgs,
-  ...
-}: let
-  system = pkgs.system;
-  isLinux = system == "aarch64-linux" || system == "x86_64-linux";
-in {
-  imports =
-    [
-      ./alacritty
-      ./direnv
-      ./git
-      ./nvim
-      ./shell
-      ./tmux
-    ]
-    # ++ lib.optional isLinux [./hyprland]
-    ;
+  imports = [
+    ./direnv
+    ./git
+    ./nvim
+    ./shell
+    ./tmux
+    ./hyprland
+  ];
 
   home.file.".config/ghostty/config".text = ''
     background-opacity = 0.9
-    confirm-close-surface = false
-    # cursor-click-to-move = false
-    font-family = JetbrainsMono Nerd Font
-    fullscreen = false
+    font-family = Geist Mono
+    theme = catppuccin-frappe
+
     macos-non-native-fullscreen = visible-menu
     macos-option-as-alt = true
+
+    confirm-close-surface = false
+    fullscreen = false
+    working-directory = home
+
+    copy-on-select = clipboard
+    cursor-click-to-move = false
     mouse-hide-while-typing = true
     quit-after-last-window-closed = true
-    window-save-state = never
-    # working-directory = inherit
-    # theme = flexoki-dark
-    # window-inherit-working-directory = inherit
+    window-inherit-working-directory = true
+    window-save-state = always
+
+    # custom keybinds
+    keybind = super+ctrl+k=resize_split:up,10
+    keybind = super+ctrl+j=resize_split:down,10
+    keybind = super+ctrl+h=resize_split:left,10
+    keybind = super+ctrl+l=resize_split:right,10
+
+    keybind = super+alt+k=goto_split:top
+    keybind = super+alt+j=goto_split:bottom
+    keybind = super+alt+h=goto_split:left
+    keybind = super+alt+l=goto_split:right
   '';
 }

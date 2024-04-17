@@ -15,14 +15,6 @@
     taps = [
       "homebrew/bundle"
       "homebrew/cask"
-      "homebrew/cask-fonts"
-      "homebrew/core"
-    ];
-
-    brews = [
-      "awscli"
-      "aws-iam-authenticator"
-      "pinentry-mac"
     ];
 
     casks = [
@@ -33,7 +25,6 @@
       "eqmac"
       "notion"
       "focusrite-control"
-      "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "jetbrains-toolbox"
       "meld-studio"

@@ -70,12 +70,12 @@
             modules = [
               ./lib/desktop
               home-manager.nixosModules.home-manager
+              hyprland.nixosModules.default
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = extraArgs;
                 home-manager.users.steffen.imports = [
-                  # hyprland.homeManagerModules.default
                   ./home
                 ];
               }

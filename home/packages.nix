@@ -3,11 +3,15 @@
   lib,
   ...
 }: let
-  isDarwin = pkgs.system == "aarch64-darwin" || pkgs.system == "x86_64-darwin";
+  inherit (pkgs) stdenv;
+  inherit (lib) optionals;
+  inherit (stdenv) isDarwin;
 in {
   home.packages = with pkgs;
     [
       # general purpose
+      awscli2
+      aws-iam-authenticator
       fd
       gnumake
       gnupg
@@ -18,17 +22,20 @@ in {
 
       # kubernetes
       kubectl
+      fzf
 
       # languages
       nodejs
       nodePackages.pnpm
 
-      nixVersions.nix_2_21
+      nixVersions.nix_2_22
 
       # random stuff
       exercism
+      geist-font
+      krabby
     ]
-    ++ lib.optionals isDarwin [pinentry_mac];
+    ++ optionals isDarwin [pinentry_mac];
 
   home.stateVersion = "24.05";
 

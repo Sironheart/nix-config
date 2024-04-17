@@ -6,7 +6,7 @@
   nixpkgs = flake.inputs.nixpkgs;
 in {
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.nix_2_22;
 
     gc = {
       automatic = true;
@@ -34,7 +34,7 @@ in {
     };
 
     extraOptions = ''
-      experimental-features = nix-command flakes auto-allocate-uids repl-flake
+      experimental-features = nix-command flakes auto-allocate-uids
       auto-allocate-uids = true
       log-lines = 100
       nix-path = nixpkgs=${nixpkgs}

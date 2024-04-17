@@ -1,6 +1,6 @@
 {pkgs, ...}: let
-  isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
-  system = pkgs.system;
+  inherit (pkgs) stdenv;
+  inherit (stdenv) isDarwin;
 in {
   programs.tmux = {
     enable = true;

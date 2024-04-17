@@ -3,7 +3,7 @@
 
   nix = {
     extraOptions = ''
-      experimental-features = nix-command flakes auto-allocate-uids repl-flake
+      experimental-features = nix-command flakes auto-allocate-uids
     '';
 
     settings.trusted-users = ["root" "steffen"];
