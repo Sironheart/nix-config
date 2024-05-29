@@ -23,6 +23,7 @@ in {
       # kubernetes
       kubectl
       fzf
+      kubelogin
 
       # languages
       nodejs
@@ -35,7 +36,13 @@ in {
       geist-font
       krabby
     ]
-    ++ optionals isDarwin [pinentry_mac];
+    ++ optionals isDarwin [
+      # Kotlin Multiplatform
+      ruby
+      cocoapods
+      kdoctor
+      zulu
+    ];
 
   home.stateVersion = "24.05";
 

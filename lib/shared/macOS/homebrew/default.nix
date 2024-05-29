@@ -15,6 +15,11 @@
     taps = [
       "homebrew/bundle"
       "homebrew/cask"
+      "homebrew/core"
+    ];
+
+    brews = [
+      "pinentry-mac"
     ];
 
     casks = [
@@ -22,15 +27,16 @@
       "alfred"
       "arc"
       "discord"
-      "eqmac"
-      "notion"
       "focusrite-control"
       "google-chrome"
       "jetbrains-toolbox"
-      "meld-studio"
+      "jordanbaird-ice"
+      "notion"
       "orbstack"
       "postman"
+      "slack"
       "spotify"
+      "xcodes"
       "zed"
     ];
 

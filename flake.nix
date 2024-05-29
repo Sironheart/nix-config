@@ -8,9 +8,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-
     sops-nix.url = "github:Mic92/sops-nix";
 
     sironheart-nvim.url = "github:Sironheart/nvim-config";
@@ -21,11 +18,10 @@
     darwin,
     flake-parts,
     home-manager,
-    hyprland,
     nixpkgs,
     self,
-    sops-nix,
     sironheart-nvim,
+    sops-nix,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
@@ -70,7 +66,6 @@
             modules = [
               ./lib/desktop
               home-manager.nixosModules.home-manager
-              hyprland.nixosModules.default
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;

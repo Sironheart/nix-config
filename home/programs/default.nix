@@ -2,10 +2,10 @@
   imports = [
     ./direnv
     ./git
+    ./sway
     ./nvim
     ./shell
     ./tmux
-    ./hyprland
   ];
 
   home.file.".config/ghostty/config".text = ''
@@ -22,12 +22,13 @@
 
     copy-on-select = clipboard
     cursor-click-to-move = false
-    mouse-hide-while-typing = true
     quit-after-last-window-closed = true
     window-inherit-working-directory = true
-    window-save-state = always
+    window-save-state = never
 
+    #
     # custom keybinds
+    #
     keybind = super+ctrl+k=resize_split:up,10
     keybind = super+ctrl+j=resize_split:down,10
     keybind = super+ctrl+h=resize_split:left,10
