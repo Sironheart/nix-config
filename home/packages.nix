@@ -38,10 +38,10 @@ in {
     ]
     ++ optionals isDarwin [
       # Kotlin Multiplatform
-      ruby
-      cocoapods
-      kdoctor
-      zulu
+      #   ruby
+      #   cocoapods
+      #   kdoctor
+      #   zulu
     ];
 
   home.stateVersion = "24.05";

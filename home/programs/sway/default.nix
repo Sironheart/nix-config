@@ -113,7 +113,7 @@ in {
   };
 
   programs.waybar = {
-    enable = true;
+    enable = isLinux;
     systemd.target = "sway-session.target";
   };
   programs.alacritty = {

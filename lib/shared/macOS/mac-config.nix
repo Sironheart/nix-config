@@ -6,29 +6,46 @@
   environment.shells = [pkgs.fish];
 
   time.timeZone = "Europe/Berlin";
-  system.defaults.finder.ShowPathbar = true;
-  system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+  system.defaults = {
+    finder.ShowPathbar = true;
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
 
-  system.defaults.dock = {
-    "mineffect" = "scale";
-    "autohide" = true;
-    "show-recents" = false;
-  };
-  system.defaults.finder = {
-    "AppleShowAllFiles" = true;
-    "AppleShowAllExtensions" = true;
-    "FXPreferredViewStyle" = "Nlsv";
-  };
-  system.defaults.NSGlobalDomain = {
-    "com.apple.swipescrolldirection" = false;
-    "com.apple.keyboard.fnState" = true;
-    "KeyRepeat" = 2;
-    "AppleEnableMouseSwipeNavigateWithScrolls" = false;
-    "AppleEnableSwipeNavigateWithScrolls" = true;
-    "NSAutomaticCapitalizationEnabled" = false;
-    "NSAutomaticDashSubstitutionEnabled" = false;
-    "NSAutomaticPeriodSubstitutionEnabled" = false;
-    "NSAutomaticQuoteSubstitutionEnabled" = false;
-    "NSAutomaticSpellingCorrectionEnabled" = false;
+    dock = {
+      mineffect = "scale";
+      autohide = true;
+      show-recents = false;
+    };
+    finder = {
+      AppleShowAllFiles = true;
+      AppleShowAllExtensions = true;
+      FXPreferredViewStyle = "Nlsv";
+      # ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+    NSGlobalDomain = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      AppleInterfaceStyle = "Dark";
+      NSAutomaticCapitalizationEnabled = false;
+      "com.apple.swipescrolldirection" = false;
+      "com.apple.keyboard.fnState" = true;
+      KeyRepeat = 2;
+      AppleEnableMouseSwipeNavigateWithScrolls = false;
+      AppleEnableSwipeNavigateWithScrolls = true;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+      NSDisableAutomaticTermination = true;
+    };
+
+    CustomSystemPreferences = {
+      "com.mitchellh.ghostty" = {
+        "NSUserKeyEquilvalents" = {
+          "Hide Ghostty" = " ";
+          "Hide Others" = " ";
+        };
+      };
+    };
   };
 }

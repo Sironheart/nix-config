@@ -13,7 +13,7 @@
     font-family = Geist Mono
     theme = catppuccin-frappe
 
-    macos-non-native-fullscreen = visible-menu
+    # macos-non-native-fullscreen = visible-menu
     macos-option-as-alt = true
 
     confirm-close-surface = false

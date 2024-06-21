@@ -27,6 +27,7 @@
       "alfred"
       "arc"
       "discord"
+      "elgato-camera-hub"
       "focusrite-control"
       "google-chrome"
       "jetbrains-toolbox"
@@ -34,9 +35,7 @@
       "notion"
       "orbstack"
       "postman"
-      "slack"
       "spotify"
-      "xcodes"
       "zed"
     ];
 

@@ -70,6 +70,8 @@
       keymap_mode = "vim-insert";
       show_preview = true;
       update_check = false;
+      style = "compact";
+      inline_height = 20;
     };
   };
 
