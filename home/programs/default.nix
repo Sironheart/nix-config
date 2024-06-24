@@ -5,13 +5,11 @@
     ./sway
     ./nvim
     ./shell
-    ./tmux
   ];
 
   home.file.".config/ghostty/config".text = ''
-    background-opacity = 0.9
     font-family = Geist Mono
-    theme = catppuccin-frappe
+    theme = TokyoNight
 
     # macos-non-native-fullscreen = visible-menu
     macos-option-as-alt = true
