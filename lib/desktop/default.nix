@@ -1,43 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: let
-  dbus-sway-environment = pkgs.writeTextFile {
-    name = "dbus-sway-environment";
-    destination = "/bin/dbus-sway-enviroment";
-    executable = true;
-
-    text = ''
-      dbus-update-activation-enviroment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-    '';
-  };
-
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure/-gtk";
-    executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsetting-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'WhiteSur-dark'
-      gsettings set $gnome_schema cursor-theme 'capitaine-cursors-white'
-    '';
-  };
-in {
+{pkgs, ...}: {
   imports = [
     /etc/nixos/hardware-configuration.nix
     ../shared/all-systems.nix
   ];
-
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -65,9 +30,6 @@ in {
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -104,32 +66,20 @@ in {
 
   programs.fish.enable = true;
 
-  # Enable automatic login for the user.
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "steffen";
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    dbus-sway-environment
-    configure-gtk
-    xdg-utils
-    whitesur-icon-theme
-    grim
-    slurp
-    wl-clipboard
-    capitaine-cursors
   ];
 
   services.greetd = {
     enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.sway}/bin/sway";
-        user = "steffen";
-      };
-      default_session = initial_session;
-    };
+    restart = true;
+  };
+
+  programs.regreet.enable = true;
+  programs.sway = {
+    enable = true;
+    package = null;
   };
 
   xdg.portal = {
@@ -138,10 +88,5 @@ in {
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }

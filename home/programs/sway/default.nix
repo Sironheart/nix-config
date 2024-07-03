@@ -1,39 +1,41 @@
 {
   pkgs,
-  config,
+  lib,
   ...
 }: let
   inherit (pkgs) stdenv;
   inherit (stdenv) isLinux;
 
-  modifier = config.wayland.windowManager.sway.config.modifier;
+  modifier = "Mod4";
 in {
   wayland.windowManager.sway = {
     enable = isLinux;
 
-    systemd = {
-      enable = true;
-      xdgAutostart = true;
-    };
-
-    extraConfig = ''
-      default_border pixel 1
-    '';
+    wrapperFeatures.gtk = true;
+    systemd.xdgAutostart = true;
+    xwayland = true;
 
     config = {
+      inherit modifier;
+
       terminal = "${pkgs.alacritty}/bin/alacritty";
 
       startup = [
+        {command = "systemctl --user restart waybar"; always = true;}
         {command = "${pkgs.alacritty}/bin/alacritty";}
+        {command = "firefox";}
       ];
 
-      modifier = "Mod4";
       up = "k";
       down = "j";
       left = "h";
       right = "l";
 
       keybindings = {
+        "${modifier}+Return" = "exec --no-startup-id ${pkgs.alacritty}/bin/alacritty";
+        "${modifier}+Tab" = "exec ${pkgs.swayr}/bin/swayr switch-window";
+        "${modifier}+Shift+d" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes' 'swaymsg exit";
+
         # Move your focus around
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
@@ -112,14 +114,10 @@ in {
     };
   };
 
-  programs.waybar = {
-    enable = isLinux;
-    systemd.target = "sway-session.target";
-  };
-  programs.alacritty = {
-    enable = isLinux;
-  };
+  programs.waybar.enable = isLinux;
+  programs.alacritty.enable = isLinux;
   programs.swaylock.enable = isLinux;
+  programs.firefox.enable = isLinux;
 
   services.swayidle.enable = isLinux;
 }
