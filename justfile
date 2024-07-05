@@ -16,6 +16,16 @@ _update-nvim-plugin:
     nix flake update sironheart-nvim
 
 [macos]
+init:
+    #/usr/bin/env bash
+    # Install Nix
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Apply flake
+    nix run nix-darwin -- switch --flake .
+
+[macos]
 _build-local:
     darwin-rebuild switch --flake $(pwd) --fallback
 
