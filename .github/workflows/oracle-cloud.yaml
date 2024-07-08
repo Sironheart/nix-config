@@ -31,4 +31,4 @@ jobs:
 
       - name: Build config
         run: |
-          just build-linux @oracle
+          just remote @oracle

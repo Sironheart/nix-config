@@ -11,6 +11,7 @@
     LC_ALL = "de_DE.UTF-8";
     LC_CTYPE = "de_DE.UTF-8";
     SHELL = "${pkgs.fish}/bin/fish";
+    _ZO_EXCLUDE_DIRS = "$HOME;$HOME/.config;$HOME/.local";
   };
 
   programs.fish = {
@@ -68,6 +69,9 @@
     settings = {
       dialect = "uk";
       keymap_mode = "vim-insert";
+      history_filter = [
+        "token"
+      ];
       show_preview = true;
       update_check = false;
       style = "compact";
@@ -80,10 +84,10 @@
     enableFishIntegration = true;
     git = true;
   };
+  programs.ripgrep.enable = true;
 
   programs.bat.enable = true;
   programs.htop.enable = true;
   programs.jq.enable = true;
   programs.k9s.enable = true;
-  programs.ripgrep.enable = true;
 }
