@@ -30,6 +30,7 @@
       "elgato-camera-hub"
       "focusrite-control"
       "google-chrome"
+      "keymapp"
       "jetbrains-toolbox"
       "jordanbaird-ice"
       "notion"

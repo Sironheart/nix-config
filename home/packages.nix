@@ -1,48 +1,32 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (pkgs) stdenv;
-  inherit (lib) optionals;
-  inherit (stdenv) isDarwin;
-in {
-  home.packages = with pkgs;
-    [
-      # general purpose
-      awscli2
-      aws-iam-authenticator
-      fd
-      gnumake
-      gnupg
-      just
-      kafkactl
-      mkcert
-      tldr
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    # general purpose
+    awscli2
+    aws-iam-authenticator
+    fd
+    gnumake
+    gnupg
+    just
+    kafkactl
+    mkcert
+    tldr
 
-      # kubernetes
-      kubectl
-      fzf
-      kubelogin
+    # kubernetes
+    kubectl
+    fzf
+    kubelogin
 
-      # languages
-      nodejs
-      nodePackages.pnpm
+    # languages
+    nodejs
+    nodePackages.pnpm
 
-      nixVersions.nix_2_22
+    nixVersions.nix_2_22
+    asdf-vm
 
-      # random stuff
-      exercism
-      geist-font
-      krabby
-    ]
-    ++ optionals isDarwin [
-      # Kotlin Multiplatform
-      #   ruby
-      #   cocoapods
-      #   kdoctor
-      #   zulu
-    ];
+    # random stuff
+    exercism
+    geist-font
+  ];
 
   home.stateVersion = "24.05";
 

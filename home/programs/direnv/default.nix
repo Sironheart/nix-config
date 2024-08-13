@@ -11,4 +11,10 @@
       };
     };
   };
+
+  home.file.".config.direnv/lib/use_asdf.sh".text = ''
+    use_asdf() {
+      source_env "$(asdf direnv envrc "$0")"
+    }
+  '';
 }

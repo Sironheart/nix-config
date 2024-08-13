@@ -23,12 +23,6 @@
       lg = "lazygit";
     };
 
-    functions = {
-      fish_greeting = {
-        body = "krabby random -i";
-      };
-    };
-
     shellInit = ''
       #-------------------------------------------------------------------------------
       # Ghostty Shell Integration
