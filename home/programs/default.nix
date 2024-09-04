@@ -9,6 +9,7 @@
 
   home.file.".config/ghostty/config".text = ''
     font-family = Geist Mono
+    font-size = 14
     theme = TokyoNight
 
     # macos-non-native-fullscreen = visible-menu

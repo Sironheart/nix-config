@@ -38,14 +38,5 @@
       NSAutomaticSpellingCorrectionEnabled = false;
       NSDisableAutomaticTermination = true;
     };
-
-    CustomSystemPreferences = {
-      "com.mitchellh.ghostty" = {
-        "NSUserKeyEquilvalents" = {
-          "Hide Ghostty" = " ";
-          "Hide Others" = " ";
-        };
-      };
-    };
   };
 }

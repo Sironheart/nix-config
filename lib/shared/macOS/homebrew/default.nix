@@ -30,18 +30,17 @@
       "elgato-camera-hub"
       "focusrite-control"
       "google-chrome"
-      "keymapp"
       "jetbrains-toolbox"
       "jordanbaird-ice"
+      "keymapp"
       "notion"
       "orbstack"
-      "postman"
+      "raycast"
       "spotify"
       "zed"
     ];
 
     masApps = {
-      "Magnet" = 441258766;
       "Remote Desk Control" = 1509037746;
       "Whatsapp" = 310633997;
     };
