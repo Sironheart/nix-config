@@ -60,22 +60,11 @@
           };
         };
 
-        nixosConfigurations = {
-          "desktop" = nixpkgs.lib.nixosSystem {
-            specialArgs = extraArgs;
-            system = "aarch64-linux";
-            modules = [
-              ./lib/desktop
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = extraArgs;
-                home-manager.users.steffen.imports = [
-                  ./home
-                ];
-              }
-            ];
+        homeConfigurations = {
+          "desktop" = home-manager.lib.homeManagerConfiguration {
+            modules = [./home ./lib/home-manager];
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
+            extraSpecialArgs = extraArgs;
           };
         };
 

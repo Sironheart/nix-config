@@ -2,7 +2,7 @@
   imports = [
     ./direnv
     ./git
-    ./sway
+    ./linuxSettings
     ./nvim
     ./shell
   ];

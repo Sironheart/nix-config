@@ -31,4 +31,4 @@ _build-local:
 
 [linux]
 _build-local:
-    sudo nixos-rebuild switch --flake '.#desktop' --impure
+    home-manager switch --flake .#desktop

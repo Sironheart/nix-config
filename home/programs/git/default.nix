@@ -1,4 +1,7 @@
-{
+{pkgs, ...}: let
+  inherit (pkgs) stdenv;
+  inherit (stdenv) isDarwin;
+in {
   programs.lazygit.enable = true;
 
   programs.git = {
@@ -8,7 +11,7 @@
     userName = "Steffen Beisenherz";
 
     extraConfig = {
-      commit.gpgsign = true;
+      commit.gpgsign = isDarwin;
       push.default = "current";
       fetch.prune = true;
       pull.rebase = true;
