@@ -3,7 +3,6 @@
     ./direnv
     ./git
     ./linuxSettings
-    ./nvim
     ./shell
   ];
 

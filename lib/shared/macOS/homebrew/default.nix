@@ -24,12 +24,10 @@
 
     casks = [
       "1password"
-      "alfred"
       "arc"
       "discord"
       "elgato-camera-hub"
       "focusrite-control"
-      "google-chrome"
       "jetbrains-toolbox"
       "jordanbaird-ice"
       "keymapp"

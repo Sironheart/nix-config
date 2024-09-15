@@ -11,7 +11,7 @@ in {
         _1password-gui
         _1password
         brave
-        discord
+        vesktop
 
         sway
       ]

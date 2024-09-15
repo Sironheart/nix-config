@@ -1,2 +1,3 @@
 # nix-config
-This is my setup for deploying multiple mox environments
+
+This is my setup for deploying multiple nix environments

@@ -4,6 +4,7 @@
     enableFishIntegration = true;
 
     settings = {
+      aws.disabled = true;
       cmake.disabled = true;
       docker_context.disabled = true;
       env_var.disabled = true;

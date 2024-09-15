@@ -10,9 +10,6 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    sironheart-nvim.url = "github:Sironheart/nvim-config";
-    sironheart-nvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -21,7 +18,6 @@
     home-manager,
     nixpkgs,
     self,
-    sironheart-nvim,
     sops-nix,
     ...
   }: let

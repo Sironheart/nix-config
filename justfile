@@ -7,7 +7,7 @@ edit-secret:
 format:
     nix fmt $(pwd)
 
-local: _update-nvim-plugin _build-local
+local: _build-local
 
 remote tag:
     nix develop -c colmena apply --on {{ tag }}
