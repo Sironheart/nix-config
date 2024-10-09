@@ -6,7 +6,7 @@
   nixpkgs = flake.inputs.nixpkgs;
 in {
   nix = {
-    package = pkgs.nixVersions.nix_2_22;
+    package = pkgs.nixVersions.latest;
 
     gc = {
       automatic = true;

@@ -19,9 +19,12 @@
     # languages
     nodejs
     nodePackages.pnpm
+    ocaml
+    opam
+    dune_3
 
     # package managers
-    nixVersions.nix_2_23
+    nixVersions.latest
     asdf-vm
 
     # random stuff
@@ -30,6 +33,8 @@
 
     # stuff needed for neovim
     cargo
+    gh
+    glab
     lua51Packages.luarocks
     php84
     php84Packages.composer

@@ -4,4 +4,6 @@
     ./nix-config.nix
     ./homebrew/default.nix
   ];
+
+  system.stateVersion = 5;
 }

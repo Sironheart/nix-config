@@ -31,6 +31,7 @@
       "jetbrains-toolbox"
       "jordanbaird-ice"
       "keymapp"
+      "logi-options+"
       "notion"
       "orbstack"
       "raycast"
