@@ -25,6 +25,7 @@
     casks = [
       "1password"
       "arc"
+      "deskpad"
       "discord"
       "elgato-camera-hub"
       "focusrite-control"
