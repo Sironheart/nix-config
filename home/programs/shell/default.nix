@@ -8,11 +8,10 @@
     AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
     AWS_REGION = "eu-central-1";
     EDITOR = "nvim";
-    LANG = "de_DE.UTF-8";
-    LC_ALL = "de_DE.UTF-8";
-    LC_CTYPE = "de_DE.UTF-8";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
     SHELL = "${pkgs.fish}/bin/fish";
-    _ZO_EXCLUDE_DIRS = "$HOME;$HOME/.config;$HOME/.local";
   };
 
   programs.fish = {
@@ -20,7 +19,6 @@
 
     shellAliases = {
       cat = "bat";
-      nb = "nix build --json --no-link --print-build-logs";
       lg = "lazygit";
     };
 

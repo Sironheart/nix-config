@@ -4,12 +4,9 @@
     awscli2
     aws-iam-authenticator
     fd
-    gnumake
     gnupg
     just
     kafkactl
-    mkcert
-    tldr
 
     # kubernetes
     kubectl
@@ -19,9 +16,6 @@
     # languages
     nodejs
     nodePackages.pnpm
-    ocaml
-    opam
-    dune_3
 
     # package managers
     nixVersions.latest
@@ -30,6 +24,7 @@
     # random stuff
     exercism
     geist-font
+    mob
 
     # stuff needed for neovim
     cargo
