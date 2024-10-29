@@ -31,8 +31,8 @@
     gh
     glab
     lua51Packages.luarocks
-    php84
-    php84Packages.composer
+    php83
+    php83Packages.composer
     wget
   ];
 
