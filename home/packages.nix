@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  inherit (pkgs) lib;
+  inherit (lib) optional optionals;
+in {
   home.packages = with pkgs; [
     # general purpose
     awscli2
@@ -16,6 +19,11 @@
     # languages
     nodejs
     nodePackages.pnpm
+    deno
+
+    # Elixir stuff
+    elixir
+    elixir-ls
 
     # package managers
     nixVersions.latest
@@ -36,7 +44,7 @@
     wget
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 
   programs.go.enable = true;

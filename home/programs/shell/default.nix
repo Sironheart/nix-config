@@ -37,9 +37,7 @@
     loginShellInit = ''
       npm set prefix ~/.npm
 
-      fish_add_path --prepend $HOME/.npm/bin
       fish_add_path --prepend /opt/homebrew/bin
-      fish_add_path --prepend $HOME/.bin
       fish_add_path --prepend /etc/profiles/per-user/$USER/bin
     '';
 
