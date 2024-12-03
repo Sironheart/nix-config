@@ -10,7 +10,7 @@ in {
       with pkgs; [
         alejandra
         _1password-gui
-        _1password
+        _1password-cli
         brave
         vesktop
 
