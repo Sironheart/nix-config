@@ -1,11 +1,9 @@
-{pkgs, ...}: let
-  inherit (pkgs) lib;
-  inherit (lib) optional optionals;
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # general purpose
-    awscli2
     aws-iam-authenticator
+    awscli2
+    dblab
     fd
     gnupg
     just
@@ -38,7 +36,6 @@ in {
     cargo
     gh
     glab
-    lua51Packages.luarocks
     php83
     php83Packages.composer
     wget

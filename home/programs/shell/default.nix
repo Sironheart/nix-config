@@ -75,8 +75,8 @@
     enableFishIntegration = true;
     git = true;
   };
-  programs.ripgrep.enable = true;
 
+  programs.ripgrep.enable = true;
   programs.bat.enable = true;
   programs.htop.enable = true;
   programs.jq.enable = true;
