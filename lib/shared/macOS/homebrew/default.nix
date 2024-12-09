@@ -25,12 +25,12 @@
     casks = [
       "1password"
       "arc"
+      "brave-browser"
       "deskpad"
       "discord"
       "elgato-camera-hub"
       "focusrite-control"
       "jordanbaird-ice"
-      "keymapp"
       "logi-options+"
       "orbstack"
       "raycast"

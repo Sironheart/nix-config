@@ -1,7 +1,4 @@
-{pkgs, ...}: let
-  inherit (pkgs) lib;
-  inherit (lib) optional optionals;
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # general purpose
     awscli2
