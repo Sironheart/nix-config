@@ -24,7 +24,6 @@
 
     casks = [
       "1password"
-      "arc"
       "brave-browser"
       "deskpad"
       "discord"
