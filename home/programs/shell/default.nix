@@ -22,6 +22,12 @@
       lg = "lazygit";
     };
 
+    functions = {
+      mkv_to_mp4 = {
+         body =  "ffmpeg -i $argv[1] -c:v copy -c:a aac -strict experimental $argv[1].mp4";
+        };
+    };
+
     shellInit = ''
       #-------------------------------------------------------------------------------
       # Ghostty Shell Integration

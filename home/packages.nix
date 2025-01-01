@@ -5,6 +5,7 @@
     awscli2
     dblab
     fd
+    ffmpeg
     gnupg
     just
     kafkactl

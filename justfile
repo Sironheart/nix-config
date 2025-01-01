@@ -12,9 +12,6 @@ local: _build-local
 remote tag:
     nix develop -c colmena apply --on {{ tag }}
 
-_update-nvim-plugin:
-    nix flake update sironheart-nvim
-
 [macos]
 init:
     #/usr/bin/env bash
