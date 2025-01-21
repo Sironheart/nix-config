@@ -14,6 +14,9 @@
     # macos-non-native-fullscreen = visible-menu
     macos-option-as-alt = true
 
+    auto-update = check
+    auto-update-channel = stable
+
     confirm-close-surface = false
     fullscreen = false
     working-directory = home
@@ -37,4 +40,14 @@
     keybind = super+alt+h=goto_split:left
     keybind = super+alt+l=goto_split:right
   '';
+
+  home.file.".config/1Password/ssh/agent.toml".text = ''
+    [[ssh-keys]]
+    vault = "Personal"
+
+    [[ssh-keys]]
+    vault = "Work"
+  '';
+
+  home.file.".rgignore".text = "!.env*";
 }

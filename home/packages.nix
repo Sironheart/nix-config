@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # general purpose
-    aws-iam-authenticator
     awscli2
-    dblab
     fd
     ffmpeg
     gnupg
@@ -20,6 +18,10 @@
     nodePackages.pnpm
     deno
 
+    cargo
+    rustc
+    rustfmt
+
     # Elixir stuff
     elixir
     elixir-ls
@@ -34,7 +36,6 @@
     mob
 
     # stuff needed for neovim
-    cargo
     gh
     glab
     php83

@@ -29,11 +29,11 @@
       "discord"
       "elgato-camera-hub"
       "focusrite-control"
+      "ghostty"
       "jordanbaird-ice"
       "logi-options+"
       "orbstack"
       "raycast"
-      "spotify"
       "zed"
     ];
 
