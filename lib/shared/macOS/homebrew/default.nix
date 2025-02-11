@@ -32,6 +32,7 @@
       "ghostty"
       "jordanbaird-ice"
       "logi-options+"
+      "obsidian"
       "orbstack"
       "raycast"
       "zed"
