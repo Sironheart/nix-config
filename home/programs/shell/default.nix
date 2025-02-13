@@ -7,7 +7,6 @@
     AZURE_DEFAULT_DURATION_HOURS = "12";
     AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
     AWS_REGION = "eu-central-1";
-    EDITOR = "nvim";
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";

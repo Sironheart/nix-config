@@ -41,6 +41,7 @@
     php83
     php83Packages.composer
     wget
+    imagemagick
   ];
 
   home.stateVersion = "24.11";
@@ -49,6 +50,8 @@
   programs.go.enable = true;
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
+
     viAlias = true;
     vimAlias = true;
 
