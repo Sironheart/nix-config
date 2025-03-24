@@ -32,9 +32,11 @@
       "ghostty"
       "jordanbaird-ice"
       "logi-options+"
+      "notion"
       "obsidian"
       "orbstack"
       "raycast"
+      "spotify"
       "zed"
     ];
 

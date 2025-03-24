@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   documentation.enable = false;
   documentation.man.enable = false;
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.shells = [pkgs.fish];
 

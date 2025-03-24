@@ -22,10 +22,6 @@
     rustc
     rustfmt
 
-    # Elixir stuff
-    elixir
-    elixir-ls
-
     # package managers
     nixVersions.latest
     asdf-vm

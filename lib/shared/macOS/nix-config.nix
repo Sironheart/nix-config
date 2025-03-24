@@ -20,6 +20,7 @@ in {
 
     settings = {
       builders-use-substitutes = true;
+      download-buffer-size = 524288000;
 
       substituters = [
         "https://nix-community.cachix.org"
@@ -39,6 +40,5 @@ in {
     '';
   };
 
-  services.nix-daemon.enable = true;
   nixpkgs.config.allowUnfree = true;
 }

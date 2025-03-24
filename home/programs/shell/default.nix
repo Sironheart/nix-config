@@ -4,13 +4,12 @@
   ];
 
   home.sessionVariables = {
-    AZURE_DEFAULT_DURATION_HOURS = "12";
-    AZURE_DEFAULT_USERNAME = "beisenherz@netrtl.com";
     AWS_REGION = "eu-central-1";
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";
     SHELL = "${pkgs.fish}/bin/fish";
+    NOMAD_ADDR = "http://nomad.home:4646";
   };
 
   programs.fish = {
@@ -23,7 +22,7 @@
 
     functions = {
       mkv_to_mp4 = {
-         body =  "ffmpeg -i $argv[1] -c:v copy -c:a aac -strict experimental $argv[1].mp4";
+         body =  "ffmpeg -i $argv[1] -filter:v 'fps=59.99' -vsync cfr -c:a aac -strict experimental $argv[1].mp4";
         };
       fish_user_key_bindings = "fish_vi_key_bindings";
     };
@@ -37,6 +36,17 @@
       # manually.
       if set -q GHOSTTY_RESOURCES_DIR
           source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
+      end
+
+      #-------------------------------------------------------------------------------
+      # Homebrew Shell Integration
+      #-------------------------------------------------------------------------------
+      if test -d (brew --prefix)"/share/fish/completions"
+          set -p fish_complete_path (brew --prefix)/share/fish/completions
+      end
+
+      if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+          set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
       end
     '';
 
