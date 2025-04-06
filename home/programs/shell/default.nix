@@ -9,7 +9,6 @@
     LC_ALL = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";
     SHELL = "${pkgs.fish}/bin/fish";
-    NOMAD_ADDR = "http://nomad.home:4646";
   };
 
   programs.fish = {

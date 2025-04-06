@@ -13,9 +13,7 @@
     };
 
     taps = [
-      "homebrew/bundle"
       "homebrew/cask"
-      "homebrew/core"
     ];
 
     brews = [
@@ -37,15 +35,8 @@
       "orbstack"
       "raycast"
       "spotify"
+      "tailscale"
       "zed"
     ];
-
-    masApps = {
-      "Remote Desk Control" = 1509037746;
-      "Whatsapp" = 310633997;
-      "Pure Paste" = 1611378436;
-      "1Password for Safari" = 1569813296;
-      "The Unarchiver" = 425424353;
-    };
   };
 }

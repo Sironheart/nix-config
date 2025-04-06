@@ -6,7 +6,6 @@
     ffmpeg
     gnupg
     just
-    kafkactl
 
     # kubernetes
     kubectl
@@ -17,10 +16,6 @@
     nodejs
     nodePackages.pnpm
     deno
-
-    cargo
-    rustc
-    rustfmt
 
     # package managers
     nixVersions.latest
