@@ -28,4 +28,4 @@ _build-local:
 
 [linux]
 _build-local:
-    home-manager switch --flake .#desktop
+    home-manager switch --flake .#desktop -b backup

@@ -21,8 +21,8 @@
 
     functions = {
       mkv_to_mp4 = {
-         body =  "ffmpeg -i $argv[1] -filter:v 'fps=59.99' -vsync cfr -c:a aac -strict experimental $argv[1].mp4";
-        };
+        body = "ffmpeg -i $argv[1] -filter:v 'fps=59.99' -vsync cfr -c:a aac -strict experimental $argv[1].mp4";
+      };
       fish_user_key_bindings = "fish_vi_key_bindings";
     };
 
@@ -40,12 +40,14 @@
       #-------------------------------------------------------------------------------
       # Homebrew Shell Integration
       #-------------------------------------------------------------------------------
-      if test -d (brew --prefix)"/share/fish/completions"
-          set -p fish_complete_path (brew --prefix)/share/fish/completions
-      end
+      if type -q brew
+        if test -d (brew --prefix)"/share/fish/completions"
+            set -p fish_complete_path (brew --prefix)/share/fish/completions
+        end
 
-      if test -d (brew --prefix)"/share/fish/vendor_completions.d"
-          set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+        if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+            set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+        end
       end
     '';
 

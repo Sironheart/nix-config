@@ -9,53 +9,15 @@ in {
     then
       with pkgs; [
         alejandra
-        _1password-gui
-        _1password-cli
-        brave
-        vesktop
-
-        sway
-        chayang
+        zed-editor
       ]
     else [];
-  services.swayidle = {
-    enable = isLinux;
-    systemdTarget = "wayland-session.target";
-    events = [
-      {
-        event = "before-sleep";
-        command = "swaylock-start";
-      }
-      {
-        event = "lock";
-        command = "swaylock-start";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 185;
-        command = "BACKGROUND=1 swaylock-start";
-      }
-      {
-        timeout = 180;
-        command = ''
-          if ! pgrep swaylock; then brightnessctl --save && chayang -d 5; fi'';
-        # resumeCommand =
-        #   "if ! pgrep swaylock; then ${backlight-restore}/bin/backlight-restore; fi";
-      }
-      {
-        timeout = 15;
-        command = ''
-          if pgrep swaylock; then brightnessctl --save; fi'';
-      }
-    ];
-  };
-
   home.file =
     if isLinux
     then {
       ".ssh/config".text = ''
         Host *
+          SetEnv TERM=xterm-256color
           IdentityAgent ~/.1password/agent.sock
       '';
     }

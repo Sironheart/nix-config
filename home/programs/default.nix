@@ -1,4 +1,11 @@
-{
+{pkgs, ...}: let
+  inherit (pkgs) stdenv;
+  inherit (stdenv) isLinux;
+  font-size =
+    if isLinux
+    then "12"
+    else "14";
+in {
   imports = [
     ./direnv
     ./git
@@ -8,7 +15,7 @@
 
   home.file.".config/ghostty/config".text = ''
     font-family = Geist Mono
-    font-size = 14
+    font-size = ${font-size}
     theme = flexoki-dark
 
     # macos-non-native-fullscreen = visible-menu
