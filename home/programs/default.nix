@@ -41,11 +41,19 @@ in {
     keybind = super+ctrl+j=resize_split:down,10
     keybind = super+ctrl+h=resize_split:left,10
     keybind = super+ctrl+l=resize_split:right,10
+    keybind = super+ctrl+up=ignore
+    keybind = super+ctrl+down=ignore
+    keybind = super+ctrl+left=ignore
+    keybind = super+ctrl+right=ignore
 
     keybind = super+alt+k=goto_split:top
     keybind = super+alt+j=goto_split:bottom
     keybind = super+alt+h=goto_split:left
     keybind = super+alt+l=goto_split:right
+    keybind = super+alt+up=ignore
+    keybind = super+alt+down=ignore
+    keybind = super+alt+left=ignore
+    keybind = super+alt+right=ignore
   '';
 
   home.file.".config/1Password/ssh/agent.toml".text = ''

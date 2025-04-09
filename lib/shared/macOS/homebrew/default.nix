@@ -32,7 +32,6 @@
       "logi-options+"
       "notion"
       "obsidian"
-      "orbstack"
       "raycast"
       "spotify"
       "tailscale"

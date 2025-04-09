@@ -23,9 +23,7 @@
     asdf-vm
 
     # random stuff
-    exercism
     geist-font
-    mob
 
     # stuff needed for neovim
     gh
