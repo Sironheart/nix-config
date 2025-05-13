@@ -54,6 +54,9 @@ in {
     keybind = super+alt+down=ignore
     keybind = super+alt+left=ignore
     keybind = super+alt+right=ignore
+
+    keybind = super+page_up=scroll_page_fractional:-0.5
+    keybind = super+page_down=scroll_page_fractional:0.5
   '';
 
   home.file.".config/1Password/ssh/agent.toml".text = ''
