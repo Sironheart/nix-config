@@ -6,6 +6,7 @@
   environment.shells = [pkgs.fish];
 
   time.timeZone = "Europe/Berlin";
+  system.primaryUser = "steffenbeisenherz";
   system.defaults = {
     finder.ShowPathbar = true;
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;

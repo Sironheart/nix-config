@@ -22,7 +22,6 @@
 
     casks = [
       "1password"
-      "autodesk-fusion"
       "brave-browser"
       "deskpad"
       "discord"
