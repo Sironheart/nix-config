@@ -22,20 +22,22 @@
 
     casks = [
       "1password"
-      "autodesk-fusion"
       "brave-browser"
       "deskpad"
       "discord"
       "elgato-camera-hub"
-      "focusrite-control"
+      "elgato-stream-deck"
+      "font-jetbrains-mono-nerd-font"
       "ghostty"
       "jordanbaird-ice"
       "logi-options+"
       "notion"
+      "obs"
       "obsidian"
       "raycast"
       "spotify"
       "tailscale"
+      "utm"
       "zed"
     ];
   };

@@ -75,6 +75,7 @@
               ./lib/mac-work
               home-manager.darwinModules.default
               {
+                home-manager.backupFileExtension = "backup";
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = extraArgs;

@@ -16,7 +16,6 @@
     # languages
     nodejs
     nodePackages.pnpm
-    deno
 
     # package managers
     nixVersions.latest
@@ -28,13 +27,13 @@
     # stuff needed for neovim
     gh
     glab
-    php83
-    php83Packages.composer
+    php84
+    php84Packages.composer
     wget
     imagemagick
   ];
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
   programs.go.enable = true;
