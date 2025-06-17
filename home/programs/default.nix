@@ -69,89 +69,89 @@ in {
 
   home.file.".rgignore".text = "!.env*";
 
-  home.file.".config/zed/keymap.json".text = ''
-    // documentation: https://zed.dev/docs/key-bindings
-    [
-      {
-        "context": "Workspace",
-        "bindings": {
-          "ctrl-~": null,
-          "ctrl-`": null
-          // "shift shift": "file_finder::Toggle"
-        }
-      },
-      {
-        "context": "Editor && inline_completion && !showing_completions",
-        "use_key_equivalents": true,
-        "bindings": {
-          "ctrl-y": "editor::AcceptInlineCompletion",
-          "ctrl-e": "editor::ToggleInlineCompletions",
-          "tab": null
-        }
-      },
-      {
-        "context": "Editor && (showing_code_actions || showing_completions)",
-        "bindings": {
-          "ctrl-y": "editor::ConfirmCompletion"
-        }
-      },
-      {
-        "context": "Editor && showing_completions",
-        "use_key_equivalents": true,
-        "bindings": {
-          "enter": null
-        }
-      }
-    ]
-  '';
-
-  home.file.".config/zed/settings.json".text = ''
-  {
-    "theme": "JetBrains New Dark",
-    "assistant": {
-      "enabled": false,
-      "version": "2"
-    },
-    "restore_on_startup": "none",
-    "soft_wrap": "none",
-    "autosave": "on_focus_change",
-    "buffer_font_size": 14,
-    "chat_panel": {
-      "button": "always"
-    },
-    "collaboration_panel": {
-      "button": false,
-      "default_width": 0
-    },
-    "features": {
-      "copilot": true,
-      "edit_prediction_provider": "copilot"
-    },
-    "project_panel": {
-      "default_width": 120
-    },
-    "relative_line_numbers": true,
-    "tab_bar": {
-      // "show": false,
-      "show_nav_history_buttons": false,
-      "show_tab_bar_buttons": false
-    },
-    "telemetry": {
-      "diagnostics": false,
-      "metrics": false
-    },
-    "toolbar": {
-      "breadcrumbs": false,
-      "quick_actions": false,
-      "selections_menu": false
-    },
-    "scroll_beyond_last_line": "off",
-    "ui_font_size": 14,
-    "vim_mode": true,
-    "terminal": {
-      "button": false,
-      "copy_on_select": true
-    }
-  }
-  '';
+  # home.file.".config/zed/keymap.json".text = ''
+  #   // documentation: https://zed.dev/docs/key-bindings
+  #   [
+  #     {
+  #       "context": "Workspace",
+  #       "bindings": {
+  #         "ctrl-~": null,
+  #         "ctrl-`": null
+  #         // "shift shift": "file_finder::Toggle"
+  #       }
+  #     },
+  #     {
+  #       "context": "Editor && inline_completion && !showing_completions",
+  #       "use_key_equivalents": true,
+  #       "bindings": {
+  #         "ctrl-y": "editor::AcceptInlineCompletion",
+  #         "ctrl-e": "editor::ToggleInlineCompletions",
+  #         "tab": null
+  #       }
+  #     },
+  #     {
+  #       "context": "Editor && (showing_code_actions || showing_completions)",
+  #       "bindings": {
+  #         "ctrl-y": "editor::ConfirmCompletion"
+  #       }
+  #     },
+  #     {
+  #       "context": "Editor && showing_completions",
+  #       "use_key_equivalents": true,
+  #       "bindings": {
+  #         "enter": null
+  #       }
+  #     }
+  #   ]
+  # '';
+  #
+  # home.file.".config/zed/settings.json".text = ''
+  # {
+  #   "theme": "JetBrains New Dark",
+  #   "assistant": {
+  #     "enabled": false,
+  #     "version": "2"
+  #   },
+  #   "restore_on_startup": "none",
+  #   "soft_wrap": "none",
+  #   "autosave": "on_focus_change",
+  #   "buffer_font_size": 14,
+  #   "chat_panel": {
+  #     "button": "always"
+  #   },
+  #   "collaboration_panel": {
+  #     "button": false,
+  #     "default_width": 0
+  #   },
+  #   "features": {
+  #     "copilot": true,
+  #     "edit_prediction_provider": "copilot"
+  #   },
+  #   "project_panel": {
+  #     "default_width": 120
+  #   },
+  #   "relative_line_numbers": true,
+  #   "tab_bar": {
+  #     // "show": false,
+  #     "show_nav_history_buttons": false,
+  #     "show_tab_bar_buttons": false
+  #   },
+  #   "telemetry": {
+  #     "diagnostics": false,
+  #     "metrics": false
+  #   },
+  #   "toolbar": {
+  #     "breadcrumbs": false,
+  #     "quick_actions": false,
+  #     "selections_menu": false
+  #   },
+  #   "scroll_beyond_last_line": "off",
+  #   "ui_font_size": 14,
+  #   "vim_mode": true,
+  #   "terminal": {
+  #     "button": false,
+  #     "copy_on_select": true
+  #   }
+  # }
+  # '';
 }
