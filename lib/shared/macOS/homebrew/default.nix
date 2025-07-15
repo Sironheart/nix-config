@@ -18,6 +18,7 @@
 
     brews = [
       "pinentry-mac"
+      "pipx"
       "pulumi"
     ];
 

@@ -27,8 +27,6 @@
     # stuff needed for neovim
     gh
     glab
-    php84
-    php84Packages.composer
     wget
     imagemagick
   ];
